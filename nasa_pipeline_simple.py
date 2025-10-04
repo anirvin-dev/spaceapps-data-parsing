@@ -40,11 +40,20 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import LatentDirichletAllocation
-import streamlit as st
-import plotly.express as px
-import plotly.graph_objects as go
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+# Visualization imports (only when needed)
+try:
+    import plotly.express as px
+    import plotly.graph_objects as go
+except ImportError:
+    px = None
+    go = None
+
+try:
+    from wordcloud import WordCloud
+    import matplotlib.pyplot as plt
+except ImportError:
+    WordCloud = None
+    plt = None
 
 # Configure logging
 logging.basicConfig(
@@ -458,122 +467,7 @@ def run_topic_analysis(sample_n: Optional[int] = None) -> Dict[str, Any]:
         logger.error(f"Error in topic analysis: {e}")
         return {"topics_found": 0}
 
-def streamlit_app():
-    """Simple Streamlit dashboard."""
-    st.title("🚀 NASA Bioscience Research Explorer")
-    st.markdown("**AI-Powered Analysis of NASA Bioscience Publications**")
-    
-    # Load data
-    @st.cache_data
-    def load_data():
-        data = {}
-        
-        # Load CSV
-        if DATA_CSV.exists():
-            data['papers'] = pd.read_csv(DATA_CSV)
-        else:
-            data['papers'] = pd.DataFrame()
-        
-        # Load summaries
-        data['extractive_summaries'] = {}
-        for summary_path in SUM_EX_DIR.glob("*.txt"):
-            paper_id = summary_path.stem.replace("paper_", "").replace("_summary", "")
-            with open(summary_path, 'r', encoding='utf-8') as f:
-                data['extractive_summaries'][paper_id] = f.read()
-        
-        data['abstractive_summaries'] = {}
-        for summary_path in SUM_AB_DIR.glob("*.txt"):
-            paper_id = summary_path.stem.replace("paper_", "").replace("_summary", "")
-            with open(summary_path, 'r', encoding='utf-8') as f:
-                data['abstractive_summaries'][paper_id] = f.read()
-        
-        # Load topics
-        topics_path = TOPICS_DIR / "topics.json"
-        if topics_path.exists():
-            with open(topics_path, 'r', encoding='utf-8') as f:
-                data['topics'] = json.load(f)
-        else:
-            data['topics'] = {"topics": []}
-        
-        return data
-    
-    data = load_data()
-    
-    # Sidebar
-    st.sidebar.title("Navigation")
-    page = st.sidebar.selectbox(
-        "Choose a page:",
-        ["Overview", "Paper Explorer", "Topic Analysis"]
-    )
-    
-    if page == "Overview":
-        st.header("📊 Overview")
-        
-        col1, col2, col3 = st.columns(3)
-        
-        with col1:
-            st.metric("Total Papers", len(data['papers']))
-        
-        with col2:
-            st.metric("Extractive Summaries", len(data['extractive_summaries']))
-        
-        with col3:
-            st.metric("Abstractive Summaries", len(data['abstractive_summaries']))
-        
-        # Show sample papers
-        if not data['papers'].empty:
-            st.subheader("📚 Sample Papers")
-            sample_papers = data['papers'].head(10)[['id', 'title']]
-            st.dataframe(sample_papers, use_container_width=True)
-    
-    elif page == "Paper Explorer":
-        st.header("🔍 Paper Explorer")
-        
-        if data['papers'].empty:
-            st.warning("No papers loaded. Run the pipeline first.")
-            return
-        
-        # Paper selector
-        paper_ids = data['papers']['id'].tolist()
-        selected_id = st.selectbox("Select a paper:", paper_ids)
-        
-        if selected_id:
-            paper_info = data['papers'][data['papers']['id'] == selected_id].iloc[0]
-            
-            st.subheader(f"📄 {paper_info['title']}")
-            st.write(f"**ID:** {paper_info['id']}")
-            st.write(f"**Link:** {paper_info['link']}")
-            
-            # Show summaries
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                st.subheader("📝 Extractive Summary")
-                if str(selected_id) in data['extractive_summaries']:
-                    st.write(data['extractive_summaries'][str(selected_id)])
-                else:
-                    st.write("No extractive summary available")
-            
-            with col2:
-                st.subheader("🤖 Abstractive Summary")
-                if str(selected_id) in data['abstractive_summaries']:
-                    st.write(data['abstractive_summaries'][str(selected_id)])
-                else:
-                    st.write("No abstractive summary available")
-    
-    elif page == "Topic Analysis":
-        st.header("🔍 Topic Analysis")
-        
-        if not data['topics']['topics']:
-            st.warning("No topics found. Run topic analysis first.")
-            return
-        
-        st.subheader(f"📊 Found {data['topics']['num_topics']} Topics")
-        
-        for topic in data['topics']['topics']:
-            with st.expander(f"Topic {topic['topic_id'] + 1}"):
-                st.write("**Top Words:**", ", ".join(topic['top_words']))
-                st.write(f"**Weight:** {topic['topic_weight']:.3f}")
+# Streamlit dashboard moved to separate file: dashboard_simple.py
 
 def main():
     """Main CLI interface."""
@@ -663,10 +557,11 @@ Examples:
         logger.info("Launching Streamlit dashboard...")
         try:
             import subprocess
-            subprocess.run(["streamlit", "run", "nasa_pipeline_simple.py"], check=True)
+            # Run the separate dashboard script
+            subprocess.run(["streamlit", "run", "dashboard_simple.py"], check=True)
         except (subprocess.CalledProcessError, FileNotFoundError):
-            logger.warning("Streamlit not found. Running built-in dashboard...")
-            streamlit_app()
+            logger.warning("Streamlit not found. Please run manually:")
+            logger.info("streamlit run dashboard_simple.py")
         return
     
     else:  # full pipeline
@@ -697,6 +592,7 @@ Examples:
         
         logger.info("\n🌐 To explore results, run:")
         logger.info("   python3 nasa_pipeline_simple.py --mode serve")
+        logger.info("   # or: streamlit run dashboard_simple.py")
 
 if __name__ == "__main__":
     main()
