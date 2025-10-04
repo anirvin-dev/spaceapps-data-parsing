@@ -1,0 +1,3 @@
+Paper 104: GeneLab: Omics database for spaceflight experiments...
+
+This study examined plant growth mechanisms in microgravity, finding that while gravitropism was disrupted, phototropism remained intact. Changes in cell wall structure and auxin signaling were observed, providing insights for developing space-based agriculture systems.

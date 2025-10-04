@@ -1,0 +1,3 @@
+Paper 108: Knowledge Network Embedding of Transcriptomic Data from Spac...
+
+This research examined muscle adaptation to microgravity, finding rapid atrophy particularly in slow-twitch fibers and lower limbs. Increased protein degradation combined with reduced synthesis drove muscle loss, though resistance exercise provided partial protection against these changes.

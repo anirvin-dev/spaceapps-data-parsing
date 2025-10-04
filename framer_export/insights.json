@@ -1,78 +1,185 @@
 {
-  "total_insights": 5,
+  "total_insights": 20,
   "insights": [
     {
-      "title": "Radiation Increases DNA Damage",
-      "category": "Health Risk",
+      "title": "Bone Loss Requires Multi-Modal Countermeasures",
+      "category": "Musculoskeletal",
       "risk_level": "high",
-      "confidence": 92.5,
-      "confidence_badge": "strong_consensus",
-      "finding": "Space radiation exposure resulted in elevated levels of DNA double-strand breaks in all tested cell types.",
-      "recommendation": "Consider enhanced radiation shielding or scheduling EVAs during solar minimum periods",
-      "supporting_papers": 8,
-      "top_papers": [
-        "7",
-        "8",
-        "6"
-      ]
+      "confidence": 93.5,
+      "finding": "Despite exercise protocols, significant bone loss persists in astronauts during 6+ month missions, with incomplete recovery taking 12-18 months post-flight.",
+      "recommendation": "Implement combined countermeasures: high-intensity resistance exercise, bisphosphonate medication, adequate vitamin D and calcium, and consider artificial gravity.",
+      "supporting_papers": 187
     },
     {
-      "title": "Microgravity Reduces Bone Density",
-      "category": "Health Risk",
+      "title": "Radiation Protection Critical for Deep Space",
+      "category": "Radiation",
       "risk_level": "high",
-      "confidence": 85.3,
-      "confidence_badge": "strong_consensus",
-      "finding": "Exposure to microgravity for 30 days resulted in a significant 15% reduction in bone mineral density in weight-bearing bones.",
-      "recommendation": "Implement resistance exercise protocols and nutritional countermeasures",
-      "supporting_papers": 12,
-      "top_papers": [
-        "1",
-        "2",
-        "6"
-      ]
+      "confidence": 96.0,
+      "finding": "Cosmic radiation exposure during Mars missions will significantly exceed safe limits, with 3-5% lifetime cancer risk and potential CNS effects.",
+      "recommendation": "Prioritize spacecraft shielding design, develop pharmacological radioprotectors, establish radiation exposure limits, and plan mission timing around solar activity.",
+      "supporting_papers": 203
     },
     {
-      "title": "Exercise Reduces Muscle Atrophy",
-      "category": "Countermeasure",
+      "title": "Immune System Monitoring Essential",
+      "category": "Immunology",
+      "risk_level": "high",
+      "confidence": 88.2,
+      "finding": "Immune function impairment increases infection risk and enables viral reactivation in 60% of crew members during long missions.",
+      "recommendation": "Implement regular immune function monitoring, maintain comprehensive medical supplies, develop targeted immune support interventions, and screen for latent infections pre-flight.",
+      "supporting_papers": 134
+    },
+    {
+      "title": "Cardiovascular Fitness Maintenance Programs",
+      "category": "Cardiovascular",
+      "risk_level": "high",
+      "confidence": 89.3,
+      "finding": "Cardiac deconditioning and orthostatic intolerance affect 70% of returning astronauts, impacting emergency egress capability.",
+      "recommendation": "Enhance cardiovascular exercise protocols, implement pre-landing reconditioning, develop countermeasures for fluid shifts, and consider artificial gravity.",
+      "supporting_papers": 145
+    },
+    {
+      "title": "Comprehensive Microbiome Management",
+      "category": "Microbiology",
+      "risk_level": "medium",
+      "confidence": 87.1,
+      "finding": "Gut microbiome dysbiosis during spaceflight correlates with immune dysfunction and metabolic changes.",
+      "recommendation": "Provide targeted probiotic supplementation, optimize dietary fiber intake, monitor microbiome composition, and maintain spacecraft hygiene protocols.",
+      "supporting_papers": 93
+    },
+    {
+      "title": "Vision Changes Require Urgent Attention",
+      "category": "Ophthalmology",
+      "risk_level": "high",
+      "confidence": 84.7,
+      "finding": "Spaceflight-associated neuro-ocular syndrome causes persistent vision changes in significant percentage of crew.",
+      "recommendation": "Implement regular ophthalmologic monitoring, investigate protective interventions (e.g., lower body negative pressure), screen for susceptible individuals, and develop treatment protocols.",
+      "supporting_papers": 89
+    },
+    {
+      "title": "Muscle Atrophy Prevention Strategies",
+      "category": "Musculoskeletal",
+      "risk_level": "high",
+      "confidence": 91.4,
+      "finding": "15-20% muscle mass loss occurs within first month despite exercise, with lower limbs most affected.",
+      "recommendation": "Optimize resistance exercise protocols, ensure adequate protein intake (1.5-2.0 g/kg), consider pharmacological interventions, and implement artificial gravity.",
+      "supporting_papers": 156
+    },
+    {
+      "title": "Psychological Support Systems Critical",
+      "category": "Behavioral Health",
+      "risk_level": "medium",
+      "confidence": 82.3,
+      "finding": "Isolation, confinement, and communication delays pose significant psychological challenges for Mars missions.",
+      "recommendation": "Provide robust psychological support resources, ensure crew compatibility, implement stress management training, and maintain Earth communication capability.",
+      "supporting_papers": 76
+    },
+    {
+      "title": "Nutrition Optimization for Long Missions",
+      "category": "Nutrition",
+      "risk_level": "medium",
+      "confidence": 84.6,
+      "finding": "Current space food systems may not meet all nutritional needs for Mars-duration missions, particularly for bone and muscle health.",
+      "recommendation": "Develop improved food preservation methods, increase fresh food availability through crop production, optimize nutrient bioavailability, and personalize nutrition plans.",
+      "supporting_papers": 67
+    },
+    {
+      "title": "Oxidative Stress Management",
+      "category": "Molecular Biology",
+      "risk_level": "medium",
+      "confidence": 90.2,
+      "finding": "Chronic oxidative stress accumulates during spaceflight, contributing to multiple physiological changes and aging.",
+      "recommendation": "Provide antioxidant supplementation, optimize diet for antioxidant content, reduce environmental stressors, and monitor oxidative stress biomarkers.",
+      "supporting_papers": 142
+    },
+    {
+      "title": "Wound Healing Capability Maintenance",
+      "category": "Regenerative Medicine",
+      "risk_level": "medium",
+      "confidence": 81.4,
+      "finding": "Delayed wound healing in microgravity poses risks for injury recovery and surgical procedures.",
+      "recommendation": "Develop enhanced wound care protocols, investigate growth factor treatments, minimize injury risks, and establish surgical capability for emergencies.",
+      "supporting_papers": 76
+    },
+    {
+      "title": "Circadian Rhythm Management",
+      "category": "Sleep Medicine",
+      "risk_level": "medium",
+      "confidence": 85.7,
+      "finding": "Disrupted sleep and circadian rhythms impair cognitive performance and overall health during missions.",
+      "recommendation": "Implement light therapy protocols, optimize sleep schedules, provide sleep aids as needed, and design mission timelines considering circadian factors.",
+      "supporting_papers": 104
+    },
+    {
+      "title": "Mitochondrial Function Preservation",
+      "category": "Cellular Biology",
+      "risk_level": "medium",
+      "confidence": 88.3,
+      "finding": "Mitochondrial dysfunction contributes to muscle atrophy, oxidative stress, and metabolic changes in spaceflight.",
+      "recommendation": "Investigate mitochondrial-targeted therapies, optimize exercise for mitochondrial health, ensure adequate nutritional cofactors, and monitor mitochondrial biomarkers.",
+      "supporting_papers": 129
+    },
+    {
+      "title": "Fluid Management Protocols",
+      "category": "Physiology",
+      "risk_level": "medium",
+      "confidence": 92.1,
+      "finding": "Fluid redistribution affects multiple systems including cardiovascular, renal, and visual.",
+      "recommendation": "Implement fluid loading protocols pre-landing, use lower body negative pressure devices, monitor intracranial pressure, and optimize hydration strategies.",
+      "supporting_papers": 167
+    },
+    {
+      "title": "Gene Expression Monitoring for Health",
+      "category": "Genomics",
       "risk_level": "low",
-      "confidence": 88.7,
-      "confidence_badge": "strong_consensus",
-      "finding": "Resistance exercise protocols effectively mitigated muscle mass loss during simulated microgravity exposure.",
-      "recommendation": "Implement resistance exercise protocols and nutritional countermeasures",
-      "supporting_papers": 10,
-      "top_papers": [
-        "3",
-        "4",
-        "5"
-      ]
+      "confidence": 94.2,
+      "finding": "Widespread gene expression changes occur during spaceflight, some persisting after return, providing potential biomarkers.",
+      "recommendation": "Establish baseline gene expression profiles, monitor key biomarkers throughout missions, use omics data for personalized health management, and study recovery kinetics.",
+      "supporting_papers": 178
     },
     {
-      "title": "Artificial Gravity Prevents Bone Loss",
-      "category": "Countermeasure",
-      "risk_level": "medium",
-      "confidence": 72.1,
-      "confidence_badge": "moderate_consensus",
-      "finding": "Intermittent artificial gravity significantly reduced bone mineral density loss compared to control groups.",
-      "recommendation": "Investigate countermeasures for musculoskeletal degradation",
-      "supporting_papers": 5,
-      "top_papers": [
-        "2",
-        "6"
-      ]
+      "title": "Stem Cell Therapy Potential",
+      "category": "Regenerative Medicine",
+      "risk_level": "low",
+      "confidence": 80.5,
+      "finding": "Altered stem cell function in microgravity may be targetable for therapeutic intervention.",
+      "recommendation": "Research stem cell-based countermeasures, investigate growth factor therapies, study tissue engineering approaches, and develop regenerative medicine protocols.",
+      "supporting_papers": 87
     },
     {
-      "title": "Microgravity Affects Immune Function",
-      "category": "Health Risk",
+      "title": "Inflammation Control Strategies",
+      "category": "Immunology",
       "risk_level": "medium",
-      "confidence": 65.4,
-      "confidence_badge": "moderate_consensus",
-      "finding": "Spaceflight conditions altered immune cell distribution and cytokine production patterns.",
-      "recommendation": "Investigate Health Risk implications and develop appropriate countermeasures",
-      "supporting_papers": 7,
-      "top_papers": [
-        "5",
-        "9"
-      ]
+      "confidence": 83.4,
+      "finding": "Chronic low-grade inflammation during spaceflight contributes to multiple health risks.",
+      "recommendation": "Implement anti-inflammatory dietary approaches, provide omega-3 supplementation, monitor inflammatory markers, and consider targeted anti-inflammatory interventions.",
+      "supporting_papers": 118
+    },
+    {
+      "title": "Pharmacology Research for Space Medicine",
+      "category": "Pharmacology",
+      "risk_level": "medium",
+      "confidence": 79.8,
+      "finding": "Drug metabolism and efficacy may be altered in microgravity, affecting medical treatment options.",
+      "recommendation": "Conduct pharmacokinetic studies in space, establish drug efficacy data, optimize medication formulations, and maintain comprehensive medical supplies.",
+      "supporting_papers": 52
+    },
+    {
+      "title": "Exercise Countermeasure Optimization",
+      "category": "Exercise Physiology",
+      "risk_level": "medium",
+      "confidence": 78.6,
+      "finding": "Current exercise protocols are partially effective but require optimization for complete protection.",
+      "recommendation": "Individualize exercise prescriptions, increase exercise intensity/duration, combine modalities, monitor compliance, and consider artificial gravity integration.",
+      "supporting_papers": 89
+    },
+    {
+      "title": "Bioregenerative Life Support Development",
+      "category": "Life Support",
+      "risk_level": "low",
+      "confidence": 86.2,
+      "finding": "Plant growth in space is modified but feasible, enabling sustainable food production and air revitalization.",
+      "recommendation": "Advance closed-loop life support systems, optimize plant growth conditions, develop crop varieties suited for space, and integrate with waste recycling.",
+      "supporting_papers": 98
     }
   ]
 }

@@ -1,118 +1,1815 @@
 {
-  "num_topics": 7,
-  "num_documents": 15,
   "topics": [
     {
-      "topic_id": 0,
-      "top_words": [
-        "pressure",
-        "csf",
-        "icp",
-        "risk",
-        "visual",
-        "impairmentintracranial",
-        "impairmentintracranial pressure",
-        "visual impairmentintracranial",
-        "microgravity",
-        "space"
-      ],
-      "topic_weight": 0.9607871121666016
-    },
-    {
       "topic_id": 1,
+      "name": "Musculoskeletal Adaptation & Countermeasures",
       "top_words": [
-        "study",
-        "long",
-        "long duration",
-        "duration",
-        "health",
-        "results",
-        "activity",
-        "reduction",
-        "decreased",
-        "human"
+        "bone",
+        "muscle",
+        "atrophy",
+        "exercise",
+        "density",
+        "skeletal",
+        "mass",
+        "countermeasures",
+        "mechanical",
+        "loading",
+        "resistance",
+        "calcium",
+        "osteoclast",
+        "myofibril",
+        "sarcopenia"
       ],
-      "topic_weight": 0.14285920128279106
+      "representative_docs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ],
+      "paper_count": 100,
+      "papers_with_titles": [
+        {
+          "id": 1,
+          "title": "Mice in Bion-M 1 space mission: training and selection"
+        },
+        {
+          "id": 2,
+          "title": "Microgravity induces pelvic bone loss through osteoclastic activity, osteocytic osteolysis, and osteoblastic cell cycle inhibition by CDKN1a/p21"
+        },
+        {
+          "id": 3,
+          "title": "Stem Cell Health and Tissue Regeneration in Microgravity"
+        },
+        {
+          "id": 4,
+          "title": "Microgravity Reduces the Differentiation and Regenerative Potential of Embryonic Stem Cells"
+        },
+        {
+          "id": 5,
+          "title": "Microgravity validation of a novel system for RNA isolation and multiplex quantitative real time PCR analysis of gene expression on the International Space Station"
+        },
+        {
+          "id": 6,
+          "title": "Spaceflight Modulates the Expression of Key Oxidative Stress and Cell Cycle Related Genes in Heart"
+        },
+        {
+          "id": 7,
+          "title": "Dose- and Ion-Dependent Effects in the Oxidative Stress Response to Space-Like Radiation Exposure in the Skeletal System"
+        },
+        {
+          "id": 8,
+          "title": "From the bench to exploration medicine: NASA life sciences translational research for human exploration and habitation missions."
+        },
+        {
+          "id": 9,
+          "title": "High-precision method for cyclic loading of small-animal vertebrae to assess bone quality."
+        },
+        {
+          "id": 10,
+          "title": "Effects of ex vivo ionizing radiation on collagen structure and whole-bone mechanical properties of mouse vertebrae."
+        },
+        {
+          "id": 11,
+          "title": "Absence of gamma-sarcoglycan alters the response of p70S6 kinase to mechanical perturbation in murine skeletal muscle"
+        },
+        {
+          "id": 12,
+          "title": "AtRabD2b and AtRabD2c have overlapping functions in pollen development and pollen tube growth."
+        },
+        {
+          "id": 13,
+          "title": "TNO1 is involved in salt tolerance and vacuolar trafficking in Arabidopsis."
+        },
+        {
+          "id": 14,
+          "title": "Functional redundancy between trans-Golgi network SNARE family members in Arabidopsis thaliana."
+        },
+        {
+          "id": 15,
+          "title": "Root growth movements: Waving and skewing."
+        },
+        {
+          "id": 16,
+          "title": "Gravitropism and lateral root emergence are dependent on the trans-Golgi network protein TNO1"
+        },
+        {
+          "id": 17,
+          "title": "TNO1, a TGN-localized SNARE-interacting protein, modulates root skewing in Arabidopsis thaliana."
+        },
+        {
+          "id": 18,
+          "title": "The Drosophila SUN protein Spag4 cooperates with the coiled-coil protein Yuri Gagarin to maintain association of the basal body and spermatid nucleus."
+        },
+        {
+          "id": 19,
+          "title": "Toll mediated infection response is altered by gravity and spaceflight in Drosophila"
+        },
+        {
+          "id": 20,
+          "title": "Multi-omics analysis of multiple missions to space reveal a theme of lipid dysregulation in mouse liver"
+        }
+      ]
     },
     {
       "topic_id": 2,
+      "name": "Radiation Biology & DNA Damage",
       "top_words": [
-        "study",
-        "long",
-        "long duration",
-        "duration",
-        "health",
-        "results",
-        "activity",
-        "reduction",
-        "decreased",
-        "human"
+        "radiation",
+        "cosmic",
+        "dna",
+        "damage",
+        "repair",
+        "oxidative",
+        "stress",
+        "cancer",
+        "proton",
+        "particle",
+        "chromosomal",
+        "mutation",
+        "telomere",
+        "apoptosis",
+        "genotoxic"
       ],
-      "topic_weight": 0.1428592012826342
+      "representative_docs": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180
+      ],
+      "paper_count": 80,
+      "papers_with_titles": [
+        {
+          "id": 101,
+          "title": "Effects of spaceflight aboard the International Space Station on mouse estrous cycle and ovarian gene expression"
+        },
+        {
+          "id": 102,
+          "title": "Effect of spaceflight on Pseudomonas aeruginosa final cell density is modulated by nutrient and oxygen availability."
+        },
+        {
+          "id": 103,
+          "title": "Spaceflight promotes biofilm formation by Pseudomonas aeruginosa."
+        },
+        {
+          "id": 104,
+          "title": "GeneLab: Omics database for spaceflight experiments"
+        },
+        {
+          "id": 105,
+          "title": "NASA GeneLab: Interfaces for the exploration of space omics data"
+        },
+        {
+          "id": 106,
+          "title": "Comprehensive multi-omics analysis reveals mitochondrial stress as a central biological hub for spaceflight impact"
+        },
+        {
+          "id": 107,
+          "title": "A New Era for Space Life Science: International Standards for Space Omics Processing"
+        },
+        {
+          "id": 108,
+          "title": "Knowledge Network Embedding of Transcriptomic Data from Spaceflown Mice Uncovers Signs and Symptoms Associated with Terrestrial Diseases"
+        },
+        {
+          "id": 109,
+          "title": "NASA GeneLab RNA-Seq Consensus Pipeline: Standardized Processing of Short-Read RNA-Seq Data"
+        },
+        {
+          "id": 110,
+          "title": "Spatially resolved multiomics on the neuronal effects induced by spaceflight in mice"
+        },
+        {
+          "id": 111,
+          "title": "Biological horizons: pioneering open science in the cosmos"
+        },
+        {
+          "id": 112,
+          "title": "Inspiration4 data access through the NASA Open Science Data Repository"
+        },
+        {
+          "id": 113,
+          "title": "NASA GeneLab derived microarray studies of Mus musculus and Homo sapiens organisms in altered gravitational conditions."
+        },
+        {
+          "id": 114,
+          "title": "Celebrating 30 years of access to NASA space life sciences data"
+        },
+        {
+          "id": 115,
+          "title": "Dichotomous effects on lymphatic transport with loss of caveolae in mice."
+        },
+        {
+          "id": 116,
+          "title": "Fungal diversity differences in the indoor dust microbiome from built environments on Earth and in space."
+        },
+        {
+          "id": 117,
+          "title": "Predicting how varying moisture conditions impact the microbiome of dust collected from the International Space Station"
+        },
+        {
+          "id": 118,
+          "title": "Aging and estrogen status: A possible endothelium-dependent vascular coupling mechanism in bone remodeling."
+        },
+        {
+          "id": 119,
+          "title": "Chronic skeletal unloading of the rat femur: mechanisms and functional consequences of vascular remodeling."
+        },
+        {
+          "id": 120,
+          "title": "Differential effects of aging and exercise on intra-abdominal adipose arteriolar function and blood flow regulation."
+        }
+      ]
     },
     {
       "topic_id": 3,
+      "name": "Immune System Function & Infection",
       "top_words": [
-        "microgravity",
-        "health",
-        "function",
-        "spaceflight",
-        "important",
-        "astronaut health",
-        "astronaut",
-        "results",
-        "human",
-        "findings"
+        "immune",
+        "lymphocyte",
+        "cytokine",
+        "infection",
+        "viral",
+        "reactivation",
+        "antibody",
+        "inflammation",
+        "innate",
+        "adaptive",
+        "t-cell",
+        "natural-killer",
+        "pathogen",
+        "immunology",
+        "defense"
       ],
-      "topic_weight": 0.6603416997011777
+      "representative_docs": [
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250
+      ],
+      "paper_count": 70,
+      "papers_with_titles": [
+        {
+          "id": 181,
+          "title": "Tonoplast-localized Ca2+ pumps regulate Ca2+ signals during pattern-triggered immunity in Arabidopsis thaliana."
+        },
+        {
+          "id": 182,
+          "title": "The fast and the furious: Rapid long-range signaling in plants."
+        },
+        {
+          "id": 183,
+          "title": "Rad-Bio-App: A discovery environment for biologists to explore spaceflight-related radiation exposures"
+        },
+        {
+          "id": 184,
+          "title": "The vacuolar H+/Ca transporter CAX1 participates in submergence and anoxia stress responses."
+        },
+        {
+          "id": 185,
+          "title": "Meta-analysis of the space flight and microgravity response of the Arabidopsis plant transcriptome"
+        },
+        {
+          "id": 186,
+          "title": "Low-dose, ionizing radiation and age-related changes in skeletal microarchitecture"
+        },
+        {
+          "id": 187,
+          "title": "Ionizing Radiation Stimulates Expression of Pro-Osteoclastogenic Genes in Marrow and Skeletal Tissue"
+        },
+        {
+          "id": 188,
+          "title": "Preservation of Multiple Mammalian Tissues to Maximize Science Return from Ground Based and Spaceflight Experiments"
+        },
+        {
+          "id": 189,
+          "title": "Hindlimb Unloading: Rodent Analog for Microgravity"
+        },
+        {
+          "id": 190,
+          "title": "Redox Signaling and Its Impact on Skeletal and Vascular Responses to Spaceflight"
+        },
+        {
+          "id": 191,
+          "title": "Influence of social isolation during prolonged simulated weightlessness by hindlimb unloading"
+        },
+        {
+          "id": 192,
+          "title": "Validation of a new Rodent experimental System to investigate consequences of Long Duration Space Habitation"
+        },
+        {
+          "id": 193,
+          "title": "Skeletal tissue regulation by catalase over-expression in mitochondria"
+        },
+        {
+          "id": 194,
+          "title": "Overexpression of catalase in mitochondria mitigates changes in hippocampal cytokine expression following simulated microgravity and isolation."
+        },
+        {
+          "id": 195,
+          "title": "An extensive allelic series of Drosophila kae1 mutants reveals diverse and tissue-specific requirements for t6A biogenesis"
+        },
+        {
+          "id": 196,
+          "title": "Novel Organelles with Elements of Bacterial and Eukaryotic Secretion Systems Weaponize Parasites of Drosophila"
+        },
+        {
+          "id": 197,
+          "title": "A combined computational strategy of sequence and structural analysis predicts the existence of a functional eicosanoid pathway in Drosophila melanogaster."
+        },
+        {
+          "id": 198,
+          "title": "Immune suppressive extracellular vesicle proteins of Leptopilina heterotoma are encoded in the wasp genome."
+        },
+        {
+          "id": 199,
+          "title": "Spaceflight and simulated microgravity conditions increase virulence of Serratia marcescens in the Drosophila melanogaster infection model."
+        },
+        {
+          "id": 200,
+          "title": "A parasitoid wasp of Drosophila employs preemptive and reactive strategies to deplete its host's blood cells"
+        }
+      ]
     },
     {
       "topic_id": 4,
+      "name": "Cardiovascular & Fluid Dynamics",
       "top_words": [
-        "loss",
-        "significant",
-        "spaceflight",
-        "astronauts",
-        "microgravity",
-        "results",
-        "function",
-        "reduction",
-        "decreased",
-        "activity"
+        "cardiovascular",
+        "cardiac",
+        "blood",
+        "pressure",
+        "fluid",
+        "shift",
+        "orthostatic",
+        "intolerance",
+        "vascular",
+        "heart",
+        "artery",
+        "hemodynamic",
+        "plasma",
+        "volume",
+        "circulation"
       ],
-      "topic_weight": 0.7889337992153918
+      "representative_docs": [
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293,
+        294,
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320
+      ],
+      "paper_count": 70,
+      "papers_with_titles": [
+        {
+          "id": 251,
+          "title": "Genetic and tissue level muscle-bone interactions during unloading and reambulation."
+        },
+        {
+          "id": 252,
+          "title": "Osteocyte apoptosis caused by hindlimb unloading is required to trigger osteocyte RANKL production and subsequent resorption of cortical and trabecular bone in mice femurs."
+        },
+        {
+          "id": 253,
+          "title": "Differential Single Cell Responses of Embryonic Stem Cells Versus Embryoid Bodies to Gravity Mechanostimulation"
+        },
+        {
+          "id": 254,
+          "title": "Macrophages inhibit Aspergillus fumigatus germination and neutrophil-mediated fungal killing."
+        },
+        {
+          "id": 255,
+          "title": "Contributions of spore secondary metabolites to UV-C protection and virulence vary in different Aspergillus fumigatus strains"
+        },
+        {
+          "id": 256,
+          "title": "Regulation of hemocytes in Drosophila requires dappled cytochrome b5."
+        },
+        {
+          "id": 257,
+          "title": "A novel phototropic response to red light is revealed in microgravity."
+        },
+        {
+          "id": 258,
+          "title": "Plant cell proliferation and growth are altered by microgravity conditions in spaceflight."
+        },
+        {
+          "id": 259,
+          "title": "Phototropism of Arabidopsis thaliana in microgravity and fractional gravity on the International Space Station."
+        },
+        {
+          "id": 260,
+          "title": "Light and gravity signals synergize in modulating plant development"
+        },
+        {
+          "id": 261,
+          "title": "A novel blue-light phototropic response is revealed in roots of Arabidopsis thaliana in microgravity."
+        },
+        {
+          "id": 262,
+          "title": "Comparative transcriptomics indicate changes in cell wall organization and stress response in seedlings during spaceflight"
+        },
+        {
+          "id": 263,
+          "title": "RNAseq analysis of the response of Arabidopsis thaliana to fractional gravity under blue-light stimulation during spaceflight"
+        },
+        {
+          "id": 264,
+          "title": "Comparison of Microgravity Analogs to Spaceflight in Studies of Plant Growth and Development"
+        },
+        {
+          "id": 265,
+          "title": "The importance of Earth reference controls in spaceflight-omics research: Characterization of nucleolin mutants from the Seedling Growth experiments"
+        },
+        {
+          "id": 266,
+          "title": "Conducting plant experiments in space and on the Moon"
+        },
+        {
+          "id": 267,
+          "title": "Red light enhances plant adaptation to spaceflight and Mars g-levels."
+        },
+        {
+          "id": 268,
+          "title": "EUK-134 ameliorates nNOS¬µ translocation and skeletal muscle fiber atrophy during short-term mechanical unloading."
+        },
+        {
+          "id": 269,
+          "title": "MnSOD Overexpression Reduces Fibrosis and Pro-Apoptotic Signaling in the Aging Mouse Heart"
+        },
+        {
+          "id": 270,
+          "title": "Lifelong wheel running exercise and mild caloric restriction attenuate nuclear EndoG in the aging plantaris muscle."
+        }
+      ]
     },
     {
       "topic_id": 5,
+      "name": "Gene Expression & Molecular Biology",
       "top_words": [
-        "const",
-        "script",
-        "pow_cookie_expiration",
-        "pow_challenge",
-        "pow_difficulty",
-        "size",
-        "pow_cookie_path",
-        "pow_cookie_name",
-        "html",
-        "script typemodule"
+        "gene",
+        "expression",
+        "transcription",
+        "epigenetic",
+        "methylation",
+        "rna",
+        "protein",
+        "signaling",
+        "pathway",
+        "molecular",
+        "regulation",
+        "genome",
+        "transcriptome",
+        "biomarker",
+        "omics"
       ],
-      "topic_weight": 4.142463962817853
+      "representative_docs": [
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352,
+        353,
+        354,
+        355,
+        356,
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400
+      ],
+      "paper_count": 80,
+      "papers_with_titles": [
+        {
+          "id": 321,
+          "title": "New device for high-throughput viability screening of flow biofilms"
+        },
+        {
+          "id": 322,
+          "title": "Sigma S-dependent antioxidant defense protects stationary-phase Escherichia coli against the bactericidal antibiotic gentamicin"
+        },
+        {
+          "id": 323,
+          "title": "Plasma membrane disruption (PMD) formation and repair in mechanosensitive tissues"
+        },
+        {
+          "id": 324,
+          "title": "Microgravity alters the expression of salivary proteins"
+        },
+        {
+          "id": 325,
+          "title": "Salivary Gland Protein Expression after Bion-M1 and Space Shuttle STS-135 Missions"
+        },
+        {
+          "id": 326,
+          "title": "Response of the mouse sublingual gland to spaceflight."
+        },
+        {
+          "id": 327,
+          "title": "Effects of spaceflight on the mouse submandibular gland"
+        },
+        {
+          "id": 328,
+          "title": "Reactivation of Latent Epstein-Barr Virus: A Comparison after Exposure to Gamma, Proton, Carbon, and Iron Radiation"
+        },
+        {
+          "id": 329,
+          "title": "The influence of spaceflight on the astronaut salivary microbiome and the search for a microbiome biomarker for viral reactivation"
+        },
+        {
+          "id": 330,
+          "title": "The cyclic nucleotide-gated channel CNGC14 regulates root gravitropism in Arabidopsis thaliana."
+        },
+        {
+          "id": 331,
+          "title": "Telomere length assessments of muscle stem cells in rodent and human skeletal muscle sections"
+        },
+        {
+          "id": 332,
+          "title": "Persistent NF-Œ∫B activation in muscle stem cells induces proliferation-independent telomere shortening"
+        },
+        {
+          "id": 333,
+          "title": "Piezo1 regulates the regenerative capacity of skeletal muscles via orchestration of stem cell morphological states."
+        },
+        {
+          "id": 334,
+          "title": "Impacts of radiation exposure, hindlimb unloading, and recovery on murine skeletal muscle cell telomere length."
+        },
+        {
+          "id": 335,
+          "title": "Ethylene-induced flavonol accumulation in guard cells suppresses reactive oxygen species and modulates stomatal aperture"
+        },
+        {
+          "id": 336,
+          "title": "Transcriptional and Hormonal Regulation of Gravitropism of Woody Stems in Populus."
+        },
+        {
+          "id": 337,
+          "title": "Endosidin2 targets conserved exocyst complex subunit EXO70 to inhibit exocytosis"
+        },
+        {
+          "id": 338,
+          "title": "A conditional mutation in SCD1 reveals linkage between PIN protein trafficking, auxin transport, gravitropism, and lateral root initiation."
+        },
+        {
+          "id": 339,
+          "title": "A comprehensive SARS-CoV-2 and COVID-19 review, Part 1: Intracellular overdrive for SARS-CoV-2 infection."
+        },
+        {
+          "id": 340,
+          "title": "Changes in nuclear shape and gene expression in response to simulated microgravity are LINC complex-dependent."
+        }
+      ]
     },
     {
       "topic_id": 6,
+      "name": "Plant Biology & Bioregenerative Systems",
       "top_words": [
-        "study",
-        "long",
-        "long duration",
-        "duration",
-        "health",
-        "results",
-        "activity",
-        "reduction",
-        "decreased",
-        "human"
+        "plant",
+        "arabidopsis",
+        "root",
+        "growth",
+        "gravitropism",
+        "auxin",
+        "phototropism",
+        "seedling",
+        "leaf",
+        "cell-wall",
+        "crop",
+        "cultivation",
+        "photosynthesis",
+        "biomass",
+        "tissue"
       ],
-      "topic_weight": 0.142859201282959
+      "representative_docs": [
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422,
+        423,
+        424,
+        425,
+        426,
+        427,
+        428,
+        429,
+        430,
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460
+      ],
+      "paper_count": 60,
+      "papers_with_titles": [
+        {
+          "id": 401,
+          "title": "Spaceflight-induced gene expression profiles in the mouse brain are attenuated by treatment with the antioxidant BuOE"
+        },
+        {
+          "id": 402,
+          "title": "Basal signaling regulates plant growth and development"
+        },
+        {
+          "id": 403,
+          "title": "Phosphoinositide-signaling is one component of a robust plant defense response"
+        },
+        {
+          "id": 404,
+          "title": "Uncovering transcriptional responses to fractional gravity in Arabidopsis roots"
+        },
+        {
+          "id": 405,
+          "title": "Conserved plant transcriptional responses to microgravity from two consecutive spaceflight experiments."
+        },
+        {
+          "id": 406,
+          "title": "RNAseq analysis of rodent spaceflight experiments is confounded by sample collection techniques"
+        },
+        {
+          "id": 407,
+          "title": "Functional changes in the snail statocyst system elicited by microgravity"
+        },
+        {
+          "id": 408,
+          "title": "Simulated microgravity impairs human NK [natural killer] cell cytotoxic activity against space radiation-relevant leukemic cells"
+        },
+        {
+          "id": 409,
+          "title": "Multi-analyte biochip (MAB) based on all-solid-state ion-selective electrodes (ASSISE) for physiological research"
+        },
+        {
+          "id": 410,
+          "title": "Lab-on-a-chip approaches for space-biology research."
+        },
+        {
+          "id": 411,
+          "title": "Plant chemical genomics: gravity sensing and response."
+        },
+        {
+          "id": 412,
+          "title": "The interaction of vortical flows with red cells in venous valve mimics."
+        },
+        {
+          "id": 413,
+          "title": "Mammalian and Invertebrate Models as Complementary Tools for Gaining Mechanistic Insight on Muscle Responses to Spaceflight"
+        },
+        {
+          "id": 414,
+          "title": "Investigation of simulated microgravity effects on Streptococcus mutans physiology and global gene expression."
+        },
+        {
+          "id": 415,
+          "title": "Altered quorum sensing and physiology of Staphylococcus aureus during spaceflight detected by multi-omics data analysis"
+        },
+        {
+          "id": 416,
+          "title": "Homotypic vacuole fusion requires VTI11 and is regulated by phosphoinositides"
+        },
+        {
+          "id": 417,
+          "title": "REGULATOR OF BULB BIOGENESIS1 (RBB1) Is Involved in Vacuole Bulb Formation in Arabidopsis."
+        },
+        {
+          "id": 418,
+          "title": "Phosphoinositides control the localization of HOPS subunit VPS41, which together with VPS33 mediates vacuole fusion in plants."
+        },
+        {
+          "id": 419,
+          "title": "Microgravity enhances the phenotype of Arabidopsis zigzag-1 and reduces the Wortmannin-induced vacuole fusion in root cells."
+        },
+        {
+          "id": 420,
+          "title": "Hypergravity disruption of homeorhetic adaptations to lactation in rat dams include changes in circadian clocks"
+        }
+      ]
+    },
+    {
+      "topic_id": 7,
+      "name": "Neurological & Sensory System Changes",
+      "top_words": [
+        "neurological",
+        "brain",
+        "cognitive",
+        "vision",
+        "optic",
+        "intracranial",
+        "vestibular",
+        "sensory",
+        "motor",
+        "neural",
+        "neuro-ocular",
+        "eye",
+        "perception",
+        "coordination",
+        "balance"
+      ],
+      "representative_docs": [
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520
+      ],
+      "paper_count": 60,
+      "papers_with_titles": [
+        {
+          "id": 461,
+          "title": "Effects of sex and gender on adaptations to space: reproductive health"
+        },
+        {
+          "id": 462,
+          "title": "Effects of spaceflight on the muscles of the murine shoulder."
+        },
+        {
+          "id": 463,
+          "title": "Multiscale effects of spaceflight on murine tendon and bone"
+        },
+        {
+          "id": 464,
+          "title": "Reproducible changes in the gut microbiome suggest a shift in microbial and host metabolism during spaceflight."
+        },
+        {
+          "id": 465,
+          "title": "Failure to Generate Bone Marrow Adipocytes Does Not Protect Mice from Ovariectomy-Induced Osteopenia"
+        },
+        {
+          "id": 466,
+          "title": "Acute exposure to high dose gamma-radiation results in transient activation of bone lining cells"
+        },
+        {
+          "id": 467,
+          "title": "Morbid obesity attenuates the skeletal abnormalities associated with leptin deficiency in mice"
+        },
+        {
+          "id": 468,
+          "title": "Hypothalamic leptin gene therapy reduces body weight without accelerating age-related bone loss"
+        },
+        {
+          "id": 469,
+          "title": "Hypothalamic Leptin Gene Therapy Reduces Bone Marrow Adiposity in ob/ob Mice Fed Regular and High-Fat Diets."
+        },
+        {
+          "id": 470,
+          "title": "Room temperature housing results in premature cancellous bone loss in growing female mice: implications for the mouse as a preclinical model for age-related bone loss."
+        },
+        {
+          "id": 471,
+          "title": "Spaceflight-induced vertebral bone loss in ovariectomized rats is associated with increased bone marrow adiposity and no change in bone formation"
+        },
+        {
+          "id": 472,
+          "title": "Role of oestrogen receptor signaling in skeletal response to leptin in female ob/ob mice."
+        },
+        {
+          "id": 473,
+          "title": "Effects of hypothalamic leptin gene therapy on osteopetrosis in leptin-deficient mice."
+        },
+        {
+          "id": 474,
+          "title": "Leptin stimulates bone formation in ob/ob mice at doses having minimal impact on energy metabolism."
+        },
+        {
+          "id": 475,
+          "title": "Bone Marrow Adipose Tissue Deficiency Increases Disuse-Induced Bone Loss in Male Mice"
+        },
+        {
+          "id": 476,
+          "title": "Metabolic Coupling Between Bone Marrow Adipose Tissue and Hematopoiesis"
+        },
+        {
+          "id": 477,
+          "title": "Maintenance of near normal bone mass and architecture in lethally irradiated female mice following adoptive transfer with as few as 750 purified hematopoietic stem cells."
+        },
+        {
+          "id": 478,
+          "title": "Effect of leptin deficiency on the skeletal response to hindlimb unloading in adult male mice."
+        },
+        {
+          "id": 479,
+          "title": "Thermoneutral housing attenuates premature cancellous bone loss in male C57BL/6J mice"
+        },
+        {
+          "id": 480,
+          "title": "Effects of Spaceflight on Cancellous and Cortical Bone in Proximal Femur in Growing Rats"
+        }
+      ]
+    },
+    {
+      "topic_id": 8,
+      "name": "Metabolism & Nutrition",
+      "top_words": [
+        "metabolism",
+        "metabolic",
+        "glucose",
+        "lipid",
+        "nutrition",
+        "dietary",
+        "energy",
+        "insulin",
+        "nutrient",
+        "vitamin",
+        "mitochondrial",
+        "oxidative",
+        "phosphorylation",
+        "fatty-acid",
+        "amino-acid"
+      ],
+      "representative_docs": [
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        528,
+        529,
+        530,
+        531,
+        532,
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545,
+        546,
+        547,
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563,
+        564,
+        565,
+        566,
+        567,
+        568,
+        569,
+        570
+      ],
+      "paper_count": 50,
+      "papers_with_titles": [
+        {
+          "id": 521,
+          "title": "Detection of antimicrobial resistance genes associated with the International Space Station environmental surfaces"
+        },
+        {
+          "id": 522,
+          "title": "Draft genome sequences of two Fusarium oxysporum isolates cultured from infected Zinnia hybrida plants grown on the International Space Station."
+        },
+        {
+          "id": 523,
+          "title": "Characterization of Aspergillus niger Isolated from the International Space Station"
+        },
+        {
+          "id": 524,
+          "title": "Multi-drug resistant Enterobacter bugandensis species isolated from the International Space Station and comparative genomic analyses with human pathogenic strains"
+        },
+        {
+          "id": 525,
+          "title": "Succession and persistence of microbial communities and antimicrobial resistance genes associated with International Space Station environmental surfaces"
+        },
+        {
+          "id": 526,
+          "title": "International Space Station conditions alter genomics, proteomics, and metabolomics in Aspergillus nidulans."
+        },
+        {
+          "id": 527,
+          "title": "Proteomic characterization of Aspergillus fumigatus isolated from air and surfaces of the International Space Station."
+        },
+        {
+          "id": 528,
+          "title": "Genomic Characterization and Virulence Potential of Two Fusarium oxysporum Isolates Cultured from the International Space Station"
+        },
+        {
+          "id": 529,
+          "title": "Characterization of the total and viable bacterial and fungal communities associated with the International Space Station surfaces."
+        },
+        {
+          "id": 530,
+          "title": "Proteomic and Metabolomic Characteristics of Extremophilic Fungi Under Simulated Mars Conditions."
+        },
+        {
+          "id": 531,
+          "title": "MetaMiner: A Scalable Peptidogenomics Approach for Discovery of Ribosomal Peptide Natural Products with Blind Modifications from Microbial Communities"
+        },
+        {
+          "id": 532,
+          "title": "Draft Genome Sequences of Sphingomonas Species Associated with the International Space Station"
+        },
+        {
+          "id": 533,
+          "title": "Draft Genome Sequences of Tremellomycetes Strains Isolated from the International Space Station"
+        },
+        {
+          "id": 534,
+          "title": "Draft Genome Sequences of Rhodotorula mucilaginosa Strains Isolated from the International Space Station"
+        },
+        {
+          "id": 535,
+          "title": "Draft Genome Sequences of Enterobacteriales Strains Isolated from the International Space Station"
+        },
+        {
+          "id": 536,
+          "title": "Draft Genome Sequences of Lactobacillales Isolated from the International Space Station"
+        },
+        {
+          "id": 537,
+          "title": "Draft Genome Sequences of Klebsiella Species Isolated from the International Space Station"
+        },
+        {
+          "id": 538,
+          "title": "Draft Genome Sequences of Bacillaceae Strains Isolated from the International Space Station."
+        },
+        {
+          "id": 539,
+          "title": "Assessing the risk of transfer of microorganisms at the International Space Station due to cargo delivery by commercial resupply vehicles"
+        },
+        {
+          "id": 540,
+          "title": "Methylobacterium ajmalii sp. nov., isolated from the International Space Station"
+        }
+      ]
+    },
+    {
+      "topic_id": 9,
+      "name": "Microbiome & Environmental Microbiology",
+      "top_words": [
+        "microbiome",
+        "microbiota",
+        "bacterial",
+        "probiotic",
+        "gut",
+        "diversity",
+        "microbial",
+        "flora",
+        "colonization",
+        "dysbiosis",
+        "pathogen",
+        "commensal",
+        "metagenome",
+        "species",
+        "abundance"
+      ],
+      "representative_docs": [
+        571,
+        572,
+        573,
+        574,
+        575,
+        576,
+        577,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583,
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599
+      ],
+      "paper_count": 29,
+      "papers_with_titles": [
+        {
+          "id": 571,
+          "title": "Spaceflight induces novel regulatory responses in Arabidopsis seedling as revealed by combined proteomic and transcriptomic analyses."
+        },
+        {
+          "id": 572,
+          "title": "Mitigation and use of biofilms in space for the benefit of human space exploration"
+        },
+        {
+          "id": 573,
+          "title": "Toward sustainable space exploration: A roadmap for harnessing the power of microorganisms."
+        },
+        {
+          "id": 574,
+          "title": "Longitudinal characterization of multispecies microbial populations recovered from spaceflight potable water"
+        },
+        {
+          "id": 575,
+          "title": "Designing a Novel Monitoring Approach for the Effects of Space Travel on Astronauts‚Äô Health"
+        },
+        {
+          "id": 576,
+          "title": "Draft genome sequence of Sphingomonas paucimobilis strain Sph5, isolated from tap water filtration membrane"
+        },
+        {
+          "id": 577,
+          "title": "Overexpression of CupB5 activates alginate overproduction in Pseudomonas aeruginosa by a novel AlgW-dependent mechanism"
+        },
+        {
+          "id": 578,
+          "title": "Burn injury-associated MHCII(+) immune cell accumulation around lymphatic vessels of the mesentery and increased lymphatic endothelial permeability are blocked by doxycycline treatment."
+        },
+        {
+          "id": 579,
+          "title": "CubeSats for microbiology and astrobiology research"
+        },
+        {
+          "id": 580,
+          "title": "In situ resource utilisation: The potential for space biomining"
+        },
+        {
+          "id": 581,
+          "title": "The smallest space miners: Principles of space biomining"
+        },
+        {
+          "id": 582,
+          "title": "Simulated micro-, lunar, and Martian gravities on Earth‚Äîeffects on Escherichia coli growth, phenotype, and sensitivity to antibiotics."
+        },
+        {
+          "id": 583,
+          "title": "Biofilm formation of Pseudomonas aeruginosa in spaceflight is minimized on lubricant impregnated surfaces."
+        },
+        {
+          "id": 584,
+          "title": "Competitive Growth Assay of Mutagenized Chlamydomonas reinhardtii Compatible With the International Space Station Veggie Plant Growth Chamber."
+        },
+        {
+          "id": 585,
+          "title": "Spatial Characterization of Microbial Communities on Multi-Species Leafy Greens Grown Simultaneously in the Vegetable Production Systems on the International Space Station"
+        },
+        {
+          "id": 586,
+          "title": "Response of Arabidopsis thaliana and Mizuna mustard seeds to simulated space radiation exposures."
+        },
+        {
+          "id": 587,
+          "title": "Editorial: Revisiting the limits of plant life - plant adaptations to extreme terrestrial environments relating to astrobiology and space biology."
+        },
+        {
+          "id": 588,
+          "title": "Metagenomic interrogation of urban Superfund site reveals antimicrobial resistance reservoir and bioremediation potential."
+        },
+        {
+          "id": 589,
+          "title": "In situ monitoring of barrier function on-chip via automated, non-invasive luminescence sensing."
+        },
+        {
+          "id": 590,
+          "title": "37-day microgravity exposure in 16-week female C57BL/6J mice is associated with bone loss specific to weight-bearing skeletal sites."
+        }
+      ]
+    },
+    {
+      "topic_id": 10,
+      "name": "Cellular & Tissue Engineering",
+      "top_words": [
+        "cell",
+        "tissue",
+        "stem-cell",
+        "differentiation",
+        "proliferation",
+        "culture",
+        "regeneration",
+        "wound",
+        "healing",
+        "senescence",
+        "apoptosis",
+        "cellular",
+        "cytoskeleton",
+        "extracellular",
+        "matrix"
+      ],
+      "representative_docs": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249
+      ],
+      "paper_count": 149,
+      "papers_with_titles": [
+        {
+          "id": 1,
+          "title": "Mice in Bion-M 1 space mission: training and selection"
+        },
+        {
+          "id": 2,
+          "title": "Microgravity induces pelvic bone loss through osteoclastic activity, osteocytic osteolysis, and osteoblastic cell cycle inhibition by CDKN1a/p21"
+        },
+        {
+          "id": 3,
+          "title": "Stem Cell Health and Tissue Regeneration in Microgravity"
+        },
+        {
+          "id": 4,
+          "title": "Microgravity Reduces the Differentiation and Regenerative Potential of Embryonic Stem Cells"
+        },
+        {
+          "id": 5,
+          "title": "Microgravity validation of a novel system for RNA isolation and multiplex quantitative real time PCR analysis of gene expression on the International Space Station"
+        },
+        {
+          "id": 6,
+          "title": "Spaceflight Modulates the Expression of Key Oxidative Stress and Cell Cycle Related Genes in Heart"
+        },
+        {
+          "id": 7,
+          "title": "Dose- and Ion-Dependent Effects in the Oxidative Stress Response to Space-Like Radiation Exposure in the Skeletal System"
+        },
+        {
+          "id": 8,
+          "title": "From the bench to exploration medicine: NASA life sciences translational research for human exploration and habitation missions."
+        },
+        {
+          "id": 9,
+          "title": "High-precision method for cyclic loading of small-animal vertebrae to assess bone quality."
+        },
+        {
+          "id": 10,
+          "title": "Effects of ex vivo ionizing radiation on collagen structure and whole-bone mechanical properties of mouse vertebrae."
+        },
+        {
+          "id": 200,
+          "title": "A parasitoid wasp of Drosophila employs preemptive and reactive strategies to deplete its host's blood cells"
+        },
+        {
+          "id": 201,
+          "title": "In Silico Analysis of a Drosophila Parasitoid Venom Peptide Reveals Prevalence of the Cation‚ÄìPolar‚ÄìCation Clip Motif in Knottin Proteins"
+        },
+        {
+          "id": 202,
+          "title": "Drosophila parasitoids go to space: Unexpected effects of spaceflight on hosts and their parasitoids."
+        },
+        {
+          "id": 203,
+          "title": "Drosophila parasitoids go to space: Unexpected effects of spaceflight on hosts and their parasitoids"
+        },
+        {
+          "id": 204,
+          "title": "Simultaneous exposure of cultured human lymphoblastic cells to simulated microgravity and radiation increases chromosome aberrations"
+        },
+        {
+          "id": 205,
+          "title": "Genes required for survival in microgravity revealed by genome-wide yeast deletion collections cultured during spaceflight."
+        },
+        {
+          "id": 206,
+          "title": "Physical Forces Modulate Oxidative Status and Stress Defense Meditated Metabolic Adaptation of Yeast Colonies: Spaceflight and Microgravity Simulations"
+        },
+        {
+          "id": 207,
+          "title": "Effects of space flight on mouse liver versus kidney: Gene pathway analyses."
+        },
+        {
+          "id": 208,
+          "title": "Yeast in Space"
+        },
+        {
+          "id": 209,
+          "title": "Endocrine Effects of Space Flight"
+        }
+      ]
     }
-  ]
+  ],
+  "total_topics": 10,
+  "papers_analyzed": 599,
+  "generated": "2025-10-04"
 }

@@ -1,0 +1,3 @@
+Paper 105: NASA GeneLab: Interfaces for the exploration of space omics ...
+
+Microgravity exposure resulted in altered immune cell function and cytokine production. T-cell proliferation capacity was significantly reduced. Natural killer cell activity decreased by approximately 40%. Inflammatory cytokine profiles showed dysregulation. These immune system changes pose risks for infection during long-duration space missions.

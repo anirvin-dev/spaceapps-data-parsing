@@ -109,9 +109,14 @@ def main():
     end_idx = 101
     
     if len(sys.argv) > 1:
-        if sys.argv[1] == "more":
-            start_idx = 109
-            end_idx = 209
+        # Allow specifying start index: python3 create_100_summaries.py 209
+        try:
+            start_idx = int(sys.argv[1])
+            end_idx = start_idx + 100
+        except ValueError:
+            if sys.argv[1] == "more":
+                start_idx = 109
+                end_idx = 209
     
     print(f"🚀 Generating summaries for papers {start_idx}-{end_idx-1}...")
     print("")

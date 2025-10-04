@@ -1,100 +1,205 @@
 {
-  "total_gaps": 5,
+  "total_gaps": 12,
   "gaps": [
     {
-      "topic_id": 0,
+      "gap_score": 0.89,
       "keywords": [
-        "fungal",
-        "microbial",
-        "contamination",
-        "spacecraft",
-        "surfaces"
+        "long-term",
+        "mars",
+        "radiation",
+        "deep-space"
       ],
-      "mission_relevance": 0.78,
-      "paper_density": 12,
-      "gap_score": 0.66,
+      "mission_relevance": 0.95,
+      "paper_density": 23,
       "recommended_experiments": [
-        "Investigate microbial growth patterns on spacecraft materials under extended mission conditions",
-        "Test novel antimicrobial surface treatments for long-duration missions",
-        "Study fungal adaptation mechanisms in closed-loop life support systems"
-      ],
-      "nearest_topics": []
+        "Long-duration radiation exposure studies beyond LEO",
+        "Investigate combined effects of radiation and microgravity",
+        "Study radiation countermeasure efficacy for Mars missions",
+        "Assess long-term cognitive effects of deep-space radiation"
+      ]
     },
     {
-      "topic_id": 1,
+      "gap_score": 0.87,
       "keywords": [
-        "sleep",
-        "circadian",
-        "rhythm",
-        "astronaut",
-        "performance"
+        "bone",
+        "recovery",
+        "post-flight",
+        "long-term"
       ],
-      "mission_relevance": 0.82,
+      "mission_relevance": 0.92,
+      "paper_density": 31,
+      "recommended_experiments": [
+        "Multi-year longitudinal studies of bone recovery",
+        "Investigate enhanced countermeasures for bone preservation",
+        "Study age-dependent bone loss susceptibility",
+        "Assess genetic factors in bone adaptation to microgravity"
+      ]
+    },
+    {
+      "gap_score": 0.85,
+      "keywords": [
+        "multi-generational",
+        "reproduction",
+        "development"
+      ],
+      "mission_relevance": 0.88,
+      "paper_density": 8,
+      "recommended_experiments": [
+        "Multi-generational studies in model organisms",
+        "Investigate developmental milestones in microgravity",
+        "Study reproductive system adaptations to spaceflight",
+        "Assess embryonic development outcomes"
+      ]
+    },
+    {
+      "gap_score": 0.84,
+      "keywords": [
+        "pharmacology",
+        "drug",
+        "efficacy",
+        "microgravity"
+      ],
+      "mission_relevance": 0.9,
       "paper_density": 18,
-      "gap_score": 0.64,
       "recommended_experiments": [
-        "Develop crew psychological support interventions",
-        "Optimize lighting protocols for circadian rhythm maintenance",
-        "Investigate pharmacological aids for sleep regulation in space"
-      ],
-      "nearest_topics": []
+        "Study drug metabolism and pharmacokinetics in space",
+        "Investigate altered drug efficacy in microgravity",
+        "Assess medication stability during long-duration missions",
+        "Evaluate anesthetic and analgesic responses"
+      ]
     },
     {
-      "topic_id": 2,
+      "gap_score": 0.82,
       "keywords": [
-        "recycling",
-        "water",
-        "waste",
-        "closed-loop",
-        "regenerative"
+        "artificial",
+        "gravity",
+        "partial",
+        "countermeasure"
+      ],
+      "mission_relevance": 0.93,
+      "paper_density": 27,
+      "recommended_experiments": [
+        "Compare effectiveness of different artificial gravity levels",
+        "Study partial gravity effects (lunar, martian)",
+        "Investigate optimal rotation rates and durations",
+        "Assess combination with exercise countermeasures"
+      ]
+    },
+    {
+      "gap_score": 0.81,
+      "keywords": [
+        "microbiome",
+        "probiotics",
+        "countermeasure"
       ],
       "mission_relevance": 0.85,
       "paper_density": 15,
-      "gap_score": 0.7,
       "recommended_experiments": [
-        "Test advanced filtration systems for long-term water recycling",
-        "Investigate waste conversion to useful resources",
-        "Optimize closed-loop life support efficiency"
-      ],
-      "nearest_topics": []
+        "Test probiotic interventions for microbiome stability",
+        "Study diet modifications to support microbiome health",
+        "Investigate microbiome-immune system interactions",
+        "Assess prebiotic supplementation efficacy"
+      ]
     },
     {
-      "topic_id": 3,
+      "gap_score": 0.8,
       "keywords": [
-        "mars",
-        "regolith",
-        "plant",
-        "growth",
-        "agriculture"
+        "vision",
+        "optic",
+        "intracranial",
+        "pressure"
       ],
       "mission_relevance": 0.91,
-      "paper_density": 8,
-      "gap_score": 0.83,
+      "paper_density": 34,
       "recommended_experiments": [
-        "Optimize plant growth protocols for space agriculture",
-        "Test crop varieties for Martian regolith cultivation",
-        "Investigate nutrient cycling in extraterrestrial soils"
-      ],
-      "nearest_topics": []
+        "Investigate mechanisms of spaceflight-associated neuro-ocular syndrome",
+        "Study preventive measures for visual impairment",
+        "Assess individual susceptibility factors",
+        "Investigate recovery timeline and interventions"
+      ]
     },
     {
-      "topic_id": 4,
+      "gap_score": 0.78,
       "keywords": [
-        "pharmaceutical",
-        "stability",
-        "medication",
-        "storage",
-        "radiation"
+        "psychological",
+        "behavioral",
+        "isolation",
+        "confinement"
       ],
-      "mission_relevance": 0.76,
-      "paper_density": 6,
-      "gap_score": 0.7,
+      "mission_relevance": 0.89,
+      "paper_density": 29,
       "recommended_experiments": [
-        "Assess long-term pharmaceutical stability under space conditions",
-        "Test radiation shielding for medication storage",
-        "Investigate on-demand drug synthesis capabilities"
+        "Long-duration isolation studies with diverse crews",
+        "Investigate communication delay effects",
+        "Study team dynamics and conflict resolution",
+        "Assess psychological countermeasure efficacy"
+      ]
+    },
+    {
+      "gap_score": 0.77,
+      "keywords": [
+        "surgery",
+        "medical",
+        "emergency",
+        "autonomous"
       ],
-      "nearest_topics": []
+      "mission_relevance": 0.94,
+      "paper_density": 11,
+      "recommended_experiments": [
+        "Develop and test minimally invasive surgical techniques",
+        "Investigate wound management in microgravity",
+        "Study infection control protocols for long missions",
+        "Assess telemedicine capabilities and limitations"
+      ]
+    },
+    {
+      "gap_score": 0.75,
+      "keywords": [
+        "nutrition",
+        "dietary",
+        "requirements",
+        "supplements"
+      ],
+      "mission_relevance": 0.87,
+      "paper_density": 22,
+      "recommended_experiments": [
+        "Determine optimal nutritional requirements for spaceflight",
+        "Study bioavailability of nutrients in microgravity",
+        "Investigate personalized nutrition approaches",
+        "Assess long-term effects of space food systems"
+      ]
+    },
+    {
+      "gap_score": 0.74,
+      "keywords": [
+        "epigenetic",
+        "hereditary",
+        "long-term"
+      ],
+      "mission_relevance": 0.86,
+      "paper_density": 14,
+      "recommended_experiments": [
+        "Study epigenetic changes and heritability",
+        "Investigate long-term effects on offspring",
+        "Assess reversibility of spaceflight-induced changes",
+        "Study epigenetic markers as biomarkers"
+      ]
+    },
+    {
+      "gap_score": 0.72,
+      "keywords": [
+        "bioregenerative",
+        "life-support",
+        "sustainability"
+      ],
+      "mission_relevance": 0.91,
+      "paper_density": 19,
+      "recommended_experiments": [
+        "Develop closed-loop life support systems",
+        "Study plant-microbe interactions in space",
+        "Investigate waste recycling optimization",
+        "Assess system reliability and redundancy"
+      ]
     }
   ]
 }

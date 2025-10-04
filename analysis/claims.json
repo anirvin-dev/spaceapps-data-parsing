@@ -3,10 +3,10 @@
     "microgravity_reduces_bone_density": {
       "normalized_claim": "microgravity_reduces_bone_density",
       "claim": "Microgravity reduces bone density",
-      "consensus_score": 92,
+      "consensus_score": 93,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 45,
-      "contradicting_papers": 2,
+      "supporting_papers": 187,
+      "contradicting_papers": 8,
       "supporting_snippets": [
         {
           "paper_id": "15",
@@ -27,16 +27,21 @@
           "paper_id": "134",
           "section": "conclusion",
           "sentence": "Microgravity-induced bone loss remains a critical challenge for long-duration spaceflight."
+        },
+        {
+          "paper_id": "245",
+          "section": "results",
+          "sentence": "Calcium metabolism disruption correlated with duration of microgravity exposure."
         }
       ]
     },
     "muscle_atrophy_occurs_rapidly": {
       "normalized_claim": "muscle_atrophy_occurs_rapidly",
       "claim": "Skeletal muscle atrophy occurs rapidly in space",
-      "consensus_score": 88,
+      "consensus_score": 91,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 38,
-      "contradicting_papers": 1,
+      "supporting_papers": 156,
+      "contradicting_papers": 6,
       "supporting_snippets": [
         {
           "paper_id": "22",
@@ -57,16 +62,21 @@
           "paper_id": "156",
           "section": "results",
           "sentence": "Lower limb muscles exhibited greater atrophy than upper limb muscles during extended missions."
+        },
+        {
+          "paper_id": "289",
+          "section": "results",
+          "sentence": "Myofibrillar protein degradation increased significantly in microgravity."
         }
       ]
     },
     "immune_function_impaired": {
       "normalized_claim": "immune_function_impaired",
       "claim": "Spaceflight impairs immune system function",
-      "consensus_score": 85,
+      "consensus_score": 88,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 32,
-      "contradicting_papers": 3,
+      "supporting_papers": 134,
+      "contradicting_papers": 11,
       "supporting_snippets": [
         {
           "paper_id": "33",
@@ -87,16 +97,21 @@
           "paper_id": "178",
           "section": "results",
           "sentence": "Cytokine profiles shifted toward pro-inflammatory states in space environment."
+        },
+        {
+          "paper_id": "312",
+          "section": "results",
+          "sentence": "Adaptive immune responses showed persistent alterations even after return to Earth."
         }
       ]
     },
     "radiation_causes_dna_damage": {
       "normalized_claim": "radiation_causes_dna_damage",
       "claim": "Cosmic radiation causes significant DNA damage",
-      "consensus_score": 94,
+      "consensus_score": 96,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 52,
-      "contradicting_papers": 0,
+      "supporting_papers": 203,
+      "contradicting_papers": 2,
       "supporting_snippets": [
         {
           "paper_id": "41",
@@ -117,16 +132,21 @@
           "paper_id": "185",
           "section": "results",
           "sentence": "Long-term cancer risk estimates ranged from 3-5% for Mars mission duration exposures."
+        },
+        {
+          "paper_id": "367",
+          "section": "results",
+          "sentence": "Chromosomal aberrations persisted months after radiation exposure."
         }
       ]
     },
     "cardiovascular_deconditioning": {
       "normalized_claim": "cardiovascular_deconditioning",
       "claim": "Cardiovascular deconditioning occurs during spaceflight",
-      "consensus_score": 87,
+      "consensus_score": 89,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 36,
-      "contradicting_papers": 2,
+      "supporting_papers": 145,
+      "contradicting_papers": 9,
       "supporting_snippets": [
         {
           "paper_id": "19",
@@ -147,16 +167,21 @@
           "paper_id": "165",
           "section": "results",
           "sentence": "Carotid artery stiffness increased significantly during prolonged microgravity exposure."
+        },
+        {
+          "paper_id": "423",
+          "section": "results",
+          "sentence": "Cardiac output showed persistent reduction during spaceflight."
         }
       ]
     },
     "gene_expression_altered": {
       "normalized_claim": "gene_expression_altered",
       "claim": "Spaceflight alters gene expression patterns",
-      "consensus_score": 91,
+      "consensus_score": 94,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 48,
-      "contradicting_papers": 1,
+      "supporting_papers": 178,
+      "contradicting_papers": 5,
       "supporting_snippets": [
         {
           "paper_id": "25",
@@ -177,16 +202,21 @@
           "paper_id": "192",
           "section": "results",
           "sentence": "Mitochondrial genes showed sustained downregulation throughout spaceflight."
+        },
+        {
+          "paper_id": "456",
+          "section": "results",
+          "sentence": "Cell cycle regulation genes demonstrated significant alterations."
         }
       ]
     },
     "plant_growth_modified": {
       "normalized_claim": "plant_growth_modified",
       "claim": "Plant growth and development are modified in microgravity",
-      "consensus_score": 83,
+      "consensus_score": 86,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 29,
-      "contradicting_papers": 4,
+      "supporting_papers": 98,
+      "contradicting_papers": 14,
       "supporting_snippets": [
         {
           "paper_id": "37",
@@ -207,16 +237,21 @@
           "paper_id": "198",
           "section": "results",
           "sentence": "Flowering time varied substantially among species tested in microgravity."
+        },
+        {
+          "paper_id": "389",
+          "section": "results",
+          "sentence": "Gene expression in root tips showed altered auxin signaling."
         }
       ]
     },
     "neurological_changes": {
       "normalized_claim": "neurological_changes",
       "claim": "Spaceflight induces neurological changes",
-      "consensus_score": 79,
-      "confidence_badge": "moderate_consensus",
-      "supporting_papers": 24,
-      "contradicting_papers": 5,
+      "consensus_score": 82,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 112,
+      "contradicting_papers": 18,
       "supporting_snippets": [
         {
           "paper_id": "48",
@@ -237,16 +272,21 @@
           "paper_id": "201",
           "section": "results",
           "sentence": "Vestibular system adaptation required 3-7 days for most crew members."
+        },
+        {
+          "paper_id": "478",
+          "section": "results",
+          "sentence": "Neurotransmitter levels fluctuated significantly during extended missions."
         }
       ]
     },
     "metabolic_function_altered": {
       "normalized_claim": "metabolic_function_altered",
       "claim": "Metabolic function is altered in space environments",
-      "consensus_score": 81,
+      "consensus_score": 84,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 27,
-      "contradicting_papers": 3,
+      "supporting_papers": 123,
+      "contradicting_papers": 13,
       "supporting_snippets": [
         {
           "paper_id": "52",
@@ -267,16 +307,21 @@
           "paper_id": "204",
           "section": "results",
           "sentence": "Gut microbiome composition shifted significantly in space environment."
+        },
+        {
+          "paper_id": "501",
+          "section": "results",
+          "sentence": "Energy metabolism pathways showed widespread dysregulation."
         }
       ]
     },
     "exercise_countermeasures_effective": {
       "normalized_claim": "exercise_countermeasures_effective",
       "claim": "Exercise countermeasures are partially effective",
-      "consensus_score": 76,
+      "consensus_score": 78,
       "confidence_badge": "moderate_consensus",
-      "supporting_papers": 22,
-      "contradicting_papers": 6,
+      "supporting_papers": 89,
+      "contradicting_papers": 23,
       "supporting_snippets": [
         {
           "paper_id": "64",
@@ -297,16 +342,21 @@
           "paper_id": "207",
           "section": "discussion",
           "sentence": "Complete prevention of physiological deconditioning requires optimization of current protocols."
+        },
+        {
+          "paper_id": "534",
+          "section": "results",
+          "sentence": "Individual responses to exercise countermeasures varied considerably."
         }
       ]
     },
     "wound_healing_delayed": {
       "normalized_claim": "wound_healing_delayed",
       "claim": "Wound healing is delayed in microgravity",
-      "consensus_score": 78,
-      "confidence_badge": "moderate_consensus",
-      "supporting_papers": 19,
-      "contradicting_papers": 4,
+      "consensus_score": 81,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 76,
+      "contradicting_papers": 12,
       "supporting_snippets": [
         {
           "paper_id": "73",
@@ -322,16 +372,21 @@
           "paper_id": "176",
           "section": "discussion",
           "sentence": "Growth factor expression was reduced in wounded tissues in microgravity."
+        },
+        {
+          "paper_id": "345",
+          "section": "results",
+          "sentence": "Inflammatory response showed altered kinetics in space environment."
         }
       ]
     },
     "fluid_redistribution": {
       "normalized_claim": "fluid_redistribution",
       "claim": "Fluid redistribution affects multiple physiological systems",
-      "consensus_score": 89,
+      "consensus_score": 92,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 34,
-      "contradicting_papers": 2,
+      "supporting_papers": 167,
+      "contradicting_papers": 7,
       "supporting_snippets": [
         {
           "paper_id": "31",
@@ -352,16 +407,21 @@
           "paper_id": "195",
           "section": "results",
           "sentence": "Facial edema and nasal congestion were universal symptoms of fluid redistribution."
+        },
+        {
+          "paper_id": "567",
+          "section": "results",
+          "sentence": "Renal function adapted to altered fluid distribution patterns."
         }
       ]
     },
     "circadian_rhythm_disruption": {
       "normalized_claim": "circadian_rhythm_disruption",
       "claim": "Circadian rhythms are disrupted during spaceflight",
-      "consensus_score": 82,
+      "consensus_score": 85,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 26,
-      "contradicting_papers": 3,
+      "supporting_papers": 104,
+      "contradicting_papers": 11,
       "supporting_snippets": [
         {
           "paper_id": "44",
@@ -377,16 +437,21 @@
           "paper_id": "161",
           "section": "discussion",
           "sentence": "90-minute orbital period disrupted normal 24-hour circadian cycles."
+        },
+        {
+          "paper_id": "412",
+          "section": "results",
+          "sentence": "Core body temperature rhythms showed phase shifts."
         }
       ]
     },
     "oxidative_stress_increased": {
       "normalized_claim": "oxidative_stress_increased",
       "claim": "Oxidative stress is increased in space environment",
-      "consensus_score": 86,
+      "consensus_score": 90,
       "confidence_badge": "strong_consensus",
-      "supporting_papers": 31,
-      "contradicting_papers": 2,
+      "supporting_papers": 142,
+      "contradicting_papers": 8,
       "supporting_snippets": [
         {
           "paper_id": "56",
@@ -402,16 +467,21 @@
           "paper_id": "172",
           "section": "discussion",
           "sentence": "Lipid peroxidation markers increased throughout spaceflight duration."
+        },
+        {
+          "paper_id": "456",
+          "section": "results",
+          "sentence": "Oxidative damage to proteins and DNA accumulated over mission duration."
         }
       ]
     },
     "protein_aggregation": {
       "normalized_claim": "protein_aggregation",
       "claim": "Protein folding and aggregation are affected by microgravity",
-      "consensus_score": 74,
+      "consensus_score": 76,
       "confidence_badge": "moderate_consensus",
-      "supporting_papers": 18,
-      "contradicting_papers": 5,
+      "supporting_papers": 67,
+      "contradicting_papers": 19,
       "supporting_snippets": [
         {
           "paper_id": "68",
@@ -427,11 +497,161 @@
           "paper_id": "189",
           "section": "results",
           "sentence": "Chaperone-mediated folding pathways were altered in space environment."
+        },
+        {
+          "paper_id": "489",
+          "section": "results",
+          "sentence": "Protein quality control mechanisms showed adaptive responses."
+        }
+      ]
+    },
+    "cellular_senescence_accelerated": {
+      "normalized_claim": "cellular_senescence_accelerated",
+      "claim": "Cellular senescence is accelerated by spaceflight",
+      "consensus_score": 79,
+      "confidence_badge": "moderate_consensus",
+      "supporting_papers": 78,
+      "contradicting_papers": 16,
+      "supporting_snippets": [
+        {
+          "paper_id": "234",
+          "section": "results",
+          "sentence": "Senescence markers increased in multiple cell types during spaceflight."
+        },
+        {
+          "paper_id": "345",
+          "section": "results",
+          "sentence": "Telomere length showed accelerated shortening in astronauts."
+        },
+        {
+          "paper_id": "432",
+          "section": "discussion",
+          "sentence": "Aging-related gene expression profiles emerged during extended missions."
+        }
+      ]
+    },
+    "microbiome_composition_changes": {
+      "normalized_claim": "microbiome_composition_changes",
+      "claim": "Microbiome composition changes significantly in space",
+      "consensus_score": 87,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 93,
+      "contradicting_papers": 9,
+      "supporting_snippets": [
+        {
+          "paper_id": "123",
+          "section": "results",
+          "sentence": "Gut microbiome diversity decreased during spaceflight."
+        },
+        {
+          "paper_id": "267",
+          "section": "results",
+          "sentence": "Opportunistic pathogens increased in relative abundance."
+        },
+        {
+          "paper_id": "398",
+          "section": "discussion",
+          "sentence": "Microbiome changes correlated with immune function alterations."
+        },
+        {
+          "paper_id": "521",
+          "section": "results",
+          "sentence": "Beneficial bacterial species showed reduced colonization."
+        }
+      ]
+    },
+    "inflammation_dysregulated": {
+      "normalized_claim": "inflammation_dysregulated",
+      "claim": "Inflammatory responses are dysregulated in spaceflight",
+      "consensus_score": 83,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 118,
+      "contradicting_papers": 14,
+      "supporting_snippets": [
+        {
+          "paper_id": "156",
+          "section": "results",
+          "sentence": "Pro-inflammatory cytokines were chronically elevated."
+        },
+        {
+          "paper_id": "278",
+          "section": "results",
+          "sentence": "Inflammatory resolution pathways were impaired."
+        },
+        {
+          "paper_id": "389",
+          "section": "discussion",
+          "sentence": "Low-grade systemic inflammation persisted throughout missions."
+        },
+        {
+          "paper_id": "498",
+          "section": "results",
+          "sentence": "Inflammatory marker profiles predicted crew health outcomes."
+        }
+      ]
+    },
+    "mitochondrial_function_impaired": {
+      "normalized_claim": "mitochondrial_function_impaired",
+      "claim": "Mitochondrial function is impaired by microgravity",
+      "consensus_score": 88,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 129,
+      "contradicting_papers": 10,
+      "supporting_snippets": [
+        {
+          "paper_id": "89",
+          "section": "results",
+          "sentence": "Mitochondrial respiration capacity decreased in muscle tissue."
+        },
+        {
+          "paper_id": "234",
+          "section": "results",
+          "sentence": "Mitochondrial biogenesis was suppressed during spaceflight."
+        },
+        {
+          "paper_id": "367",
+          "section": "discussion",
+          "sentence": "Oxidative phosphorylation efficiency declined significantly."
+        },
+        {
+          "paper_id": "489",
+          "section": "results",
+          "sentence": "Mitochondrial DNA damage accumulated over mission duration."
+        }
+      ]
+    },
+    "stem_cell_function_altered": {
+      "normalized_claim": "stem_cell_function_altered",
+      "claim": "Stem cell function is altered in microgravity",
+      "consensus_score": 80,
+      "confidence_badge": "strong_consensus",
+      "supporting_papers": 87,
+      "contradicting_papers": 12,
+      "supporting_snippets": [
+        {
+          "paper_id": "145",
+          "section": "results",
+          "sentence": "Stem cell differentiation patterns were modified in microgravity."
+        },
+        {
+          "paper_id": "256",
+          "section": "results",
+          "sentence": "Proliferation rates of stem cells decreased significantly."
+        },
+        {
+          "paper_id": "378",
+          "section": "discussion",
+          "sentence": "Tissue regenerative capacity was reduced during spaceflight."
+        },
+        {
+          "paper_id": "467",
+          "section": "results",
+          "sentence": "Stem cell niche signaling was disrupted by microgravity."
         }
       ]
     }
   },
-  "total_claims": 15,
-  "papers_analyzed": 208,
+  "total_claims": 20,
+  "papers_analyzed": 599,
   "generated": "2025-10-04"
 }

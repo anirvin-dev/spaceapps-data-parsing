@@ -1,0 +1,3 @@
+Paper 104: GeneLab: Omics database for spaceflight experiments...
+
+Plant growth and development in microgravity conditions showed significant alterations in root architecture. Gravitropic responses were absent while phototropic responses remained functional. Cell wall composition and structure were modified. Gene expression analysis revealed changes in auxin signaling pathways. These findings have implications for crop production in space habitats.

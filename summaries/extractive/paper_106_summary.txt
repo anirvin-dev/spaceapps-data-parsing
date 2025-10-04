@@ -1,0 +1,3 @@
+Paper 106: Comprehensive multi-omics analysis reveals mitochondrial str...
+
+Gene expression profiling revealed over 1,000 differentially expressed genes in spaceflight conditions. Stress response pathways were upregulated while metabolic genes showed downregulation. Epigenetic modifications including DNA methylation changes were observed. These molecular alterations persisted for weeks after return to Earth.

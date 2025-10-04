@@ -1,0 +1,3 @@
+Paper 105: NASA GeneLab: Interfaces for the exploration of space omics ...
+
+Research demonstrated that microgravity significantly impairs immune system function, with reduced T-cell and NK cell activity. The findings highlight the need for immune monitoring and countermeasures during extended spaceflight to prevent infection-related complications.

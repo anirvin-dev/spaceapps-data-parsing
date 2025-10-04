@@ -1,0 +1,3 @@
+Paper 108: Knowledge Network Embedding of Transcriptomic Data from Spac...
+
+Skeletal muscle atrophy was evident within the first month of spaceflight. Type I slow-twitch muscle fibers showed preferential atrophy compared to Type II fibers. Protein degradation pathways were activated while synthesis was suppressed. Lower limb muscles exhibited greater atrophy than upper limb muscles. Resistance exercise partially mitigated muscle loss.

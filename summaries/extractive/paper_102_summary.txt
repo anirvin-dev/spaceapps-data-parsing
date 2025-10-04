@@ -1,0 +1,3 @@
+Paper 102: Effect of spaceflight on Pseudomonas aeruginosa final cell d...
+
+Radiation exposure from cosmic rays and solar particle events poses significant health risks. DNA double-strand breaks increased with radiation dose. Oxidative stress markers were elevated. Long-term cancer risk estimates ranged from 3-5% for Mars mission durations. Shielding effectiveness varied by material composition and thickness.
