@@ -21,4 +21,4 @@ hdbscan>=0.8.0
 numpy>=1.24.0
 scipy>=1.10.0
 spacy>=3.6.0
-en_core_sci_sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/en_core_sci_sm-0.5.1.tar.gz
+# en_core_sci_sm will be installed separately via spacy

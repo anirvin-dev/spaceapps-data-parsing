@@ -1,0 +1,22 @@
+{
+  "num_topics": 1,
+  "num_documents": 3,
+  "topics": [
+    {
+      "topic_id": 0,
+      "top_words": [
+        "microgravity",
+        "spaceflight",
+        "health",
+        "study",
+        "conditions",
+        "function",
+        "simulated microgravity",
+        "simulated",
+        "conclusion",
+        "abstract"
+      ],
+      "topic_weight": 2.089488907492017
+    }
+  ]
+}
