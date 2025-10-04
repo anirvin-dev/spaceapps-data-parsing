@@ -224,18 +224,35 @@ def show_topic_analysis(data):
     
     st.subheader(f"📊 {len(topics)} Topics Identified")
     
-    for topic in topics:
-        topic_id = topic.get('topic_id', 'Unknown')
+    # Sort topics by ID to ensure consistent ordering
+    topics_sorted = sorted(topics, key=lambda x: x.get('topic_id', 0))
+    
+    for idx, topic in enumerate(topics_sorted, start=1):
+        topic_id = idx  # Use 1-based indexing
         top_words = topic.get('top_words', [])
         
-        with st.expander(f"Topic {topic_id}: {', '.join(top_words[:5])}"):
+        with st.expander(f"🔬 Topic {topic_id}: {', '.join(top_words[:5])}"):
             st.markdown("**Top Keywords:**")
             st.write(", ".join(top_words[:15]))
             
             if 'representative_docs' in topic:
-                st.markdown("**Representative Papers:**")
-                for doc in topic['representative_docs'][:3]:
-                    st.write(f"- Paper {doc}")
+                st.markdown("**📄 Representative Papers (Source Analysis):**")
+                rep_docs = topic['representative_docs'][:5]  # Show up to 5
+                for doc_id in rep_docs:
+                    # Try to get paper title
+                    if not data['papers'].empty:
+                        paper = data['papers'][data['papers']['id'] == int(doc_id)]
+                        if not paper.empty:
+                            title = paper.iloc[0]['title']
+                            st.write(f"- **Paper {doc_id}:** {title[:80]}...")
+                        else:
+                            st.write(f"- Paper {doc_id}")
+                    else:
+                        st.write(f"- Paper {doc_id}")
+            
+            # Show paper count for this topic
+            if 'representative_docs' in topic:
+                st.markdown(f"*Total papers in this topic: {len(topic['representative_docs'])}*")
 
 def show_search_page(data):
     """Search papers by keywords."""
