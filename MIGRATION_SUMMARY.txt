@@ -1,0 +1,74 @@
+🎨 FRAMER MIGRATION - COMPLETE GUIDE
+====================================
+
+✅ WHAT YOU HAVE NOW:
+- 200 papers with dual AI summaries
+- 15 consensus claims (based on 208 papers)  
+- 10 topics (numbered 1-10 with source papers)
+- 8 knowledge gaps
+- 15 mission insights
+- 1,507 additional NASA sources
+- ALL data exported as JSON (940 KB total)
+
+📁 WHAT TO COPY TO FRAMER:
+Copy this ONE folder: framer_export/
+  ├── papers.json (368 KB)
+  ├── claims.json (15 KB)
+  ├── topics.json (3 KB)
+  ├── gaps.json (3 KB)
+  ├── insights.json (3 KB)
+  ├── sources.json (551 KB)
+  └── stats.json (0.2 KB)
+
+🗑️ WHAT TO DELETE (Not needed for web):
+- All Python scripts (nasa_pipeline_*.py, etc)
+- Dashboard files (dashboard_*.py)
+- Raw data folders (papers/, summaries/, etc)
+- Python environment (venv/, requirements.txt)
+- Most documentation files
+
+📋 WHAT TO KEEP FOR REFERENCE:
+- FRAMER_MIGRATION_CLEAN.md (what to delete)
+- FRAMER_INTEGRATION_GUIDE.md (full examples)
+- FRAMER_QUICKSTART.md (5-minute start)
+- COMPLETE_STATUS_200_PAPERS.md (data summary)
+- JUDGE_PRESENTATION_CHEATSHEET.md (demo script)
+
+🚀 QUICK START (5 MINUTES):
+1. Copy framer_export/ to your Framer project
+2. Create PapersList component (see FRAMER_QUICKSTART.md)
+3. Fetch data: fetch('/api/papers.json')
+4. Done! Display papers in your UI
+
+🎯 PAGES TO BUILD:
+1. Home - Stats + Featured (15 min)
+2. Papers - All 200 with search (20 min)
+3. Topics - 10 topics explorer (15 min)
+4. Insights - Claims/Gaps/Insights (20 min)
+5. Sources - 1,507 NASA sources (15 min)
+
+Total build time: ~90 minutes for full site
+
+📊 DATA STRUCTURE:
+Papers: 200 with extractive + abstractive summaries
+Topics: 10 numbered 1-10 with source papers shown
+Claims: 15 with evidence and confidence scores
+Gaps: 8 with mission relevance and recommendations
+Insights: 15 with risk levels and actions
+Sources: 1,507 NASA missions/experiments/projects
+
+🔧 BASIC FETCH PATTERN:
+const [data, setData] = useState([]);
+useEffect(() => {
+  fetch('/api/papers.json')
+    .then(res => res.json())
+    .then(data => setData(data.papers));
+}, []);
+
+✨ RESULT:
+Clean migration with ONLY what you need (~1 MB)
+All data accessible via simple fetch
+No backend required
+Ready to style with your Framer UI
+
+🏆 YOU'RE READY TO BUILD!

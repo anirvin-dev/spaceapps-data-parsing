@@ -23,7 +23,7 @@
   <script type="module" crossorigin="" src="/static/assets/pow-ef8bd874.js"></script>
 
   <script type="module">
-    const POW_CHALLENGE = "VwR3AGx2ZQplBQHhZmL0AwL0Vt:2n8Oca49NVUHcFsdSOTrfPuiCpnIKNvLjKr7-41QkSx"
+    const POW_CHALLENGE = "VwR3AGx2ZGV5AGHhZwV2BQtjAvV:SKoQKPlCcT0oAD7LW63tmeAPrSGcU8aPphTlHdBrMv4"
     const POW_DIFFICULTY = "4"
     const POW_COOKIE_NAME = "cloudpmc-viewer-pow"
     const POW_COOKIE_PATH = "/"

@@ -1,266 +1,118 @@
 {
+  "num_topics": 7,
+  "num_documents": 15,
   "topics": [
     {
       "topic_id": 0,
-      "label": "Bone and Muscle Degradation",
       "top_words": [
-        "bone",
-        "muscle",
-        "atrophy",
-        "density",
-        "skeletal",
-        "degradation",
-        "osteoblast",
-        "osteoclast",
-        "calcium",
-        "exercise",
-        "countermeasure",
-        "mechanical",
-        "loading",
-        "strength",
-        "mass"
+        "pressure",
+        "csf",
+        "icp",
+        "risk",
+        "visual",
+        "impairmentintracranial",
+        "impairmentintracranial pressure",
+        "visual impairmentintracranial",
+        "microgravity",
+        "space"
       ],
-      "representative_docs": [
-        "1",
-        "2",
-        "9"
-      ],
-      "doc_count": 85,
-      "description": "Research on microgravity-induced bone loss and muscle atrophy, including countermeasure development"
+      "topic_weight": 0.9607871121666016
     },
     {
       "topic_id": 1,
-      "label": "Stem Cell Biology and Regeneration",
       "top_words": [
-        "stem",
-        "cell",
-        "differentiation",
-        "regeneration",
-        "embryonic",
-        "proliferation",
-        "tissue",
-        "repair",
-        "potential",
-        "morphology",
-        "pluripotent",
-        "lineage",
-        "growth",
-        "development",
-        "therapeutic"
+        "study",
+        "long",
+        "long duration",
+        "duration",
+        "health",
+        "results",
+        "activity",
+        "reduction",
+        "decreased",
+        "human"
       ],
-      "representative_docs": [
-        "3",
-        "4"
-      ],
-      "doc_count": 62,
-      "description": "Effects of microgravity on stem cell function, differentiation, and regenerative capacity"
+      "topic_weight": 0.14285920128279106
     },
     {
       "topic_id": 2,
-      "label": "Radiation Effects and DNA Damage",
       "top_words": [
-        "radiation",
-        "dna",
-        "damage",
-        "repair",
-        "cosmic",
-        "oxidative",
-        "stress",
-        "mutation",
-        "chromosome",
-        "genotoxic",
-        "dose",
-        "protection",
-        "shielding",
-        "risk",
-        "carcinogenic"
+        "study",
+        "long",
+        "long duration",
+        "duration",
+        "health",
+        "results",
+        "activity",
+        "reduction",
+        "decreased",
+        "human"
       ],
-      "representative_docs": [
-        "7",
-        "10"
-      ],
-      "doc_count": 73,
-      "description": "Space radiation health risks, DNA damage mechanisms, and protective strategies"
+      "topic_weight": 0.1428592012826342
     },
     {
       "topic_id": 3,
-      "label": "Gene Expression and Molecular Response",
       "top_words": [
-        "gene",
-        "expression",
-        "rna",
-        "protein",
-        "pathway",
-        "regulation",
-        "transcription",
-        "signaling",
-        "molecular",
-        "biomarker",
-        "stress",
-        "response",
-        "analysis",
-        "sequencing",
-        "profile"
+        "microgravity",
+        "health",
+        "function",
+        "spaceflight",
+        "important",
+        "astronaut health",
+        "astronaut",
+        "results",
+        "human",
+        "findings"
       ],
-      "representative_docs": [
-        "5",
-        "6"
-      ],
-      "doc_count": 58,
-      "description": "Molecular responses to spaceflight including gene expression changes and stress pathways"
+      "topic_weight": 0.6603416997011777
     },
     {
       "topic_id": 4,
-      "label": "Immune System Function",
       "top_words": [
-        "immune",
-        "cytokine",
-        "lymphocyte",
-        "infection",
-        "inflammatory",
-        "response",
-        "antibody",
-        "defense",
-        "cell",
-        "adaptive",
-        "innate",
-        "activation",
-        "suppression",
-        "modulation",
-        "tolerance"
+        "loss",
+        "significant",
+        "spaceflight",
+        "astronauts",
+        "microgravity",
+        "results",
+        "function",
+        "reduction",
+        "decreased",
+        "activity"
       ],
-      "representative_docs": [
-        "8"
-      ],
-      "doc_count": 47,
-      "description": "Spaceflight effects on immune system function and disease susceptibility"
+      "topic_weight": 0.7889337992153918
     },
     {
       "topic_id": 5,
-      "label": "Cardiovascular Adaptation",
       "top_words": [
-        "cardiovascular",
-        "heart",
-        "blood",
-        "pressure",
-        "vascular",
-        "circulation",
-        "cardiac",
-        "orthostatic",
-        "fluid",
-        "shift",
-        "arrhythmia",
-        "endothelial",
-        "vessel",
-        "flow",
-        "regulation"
+        "const",
+        "script",
+        "pow_cookie_expiration",
+        "pow_challenge",
+        "pow_difficulty",
+        "size",
+        "pow_cookie_path",
+        "pow_cookie_name",
+        "html",
+        "script typemodule"
       ],
-      "representative_docs": [],
-      "doc_count": 41,
-      "description": "Cardiovascular system changes during spaceflight and post-flight readaptation"
+      "topic_weight": 4.142463962817853
     },
     {
       "topic_id": 6,
-      "label": "Plant Biology and Life Support",
       "top_words": [
-        "plant",
-        "growth",
-        "photosynthesis",
-        "root",
-        "shoot",
-        "gravitropism",
-        "development",
-        "crop",
-        "agriculture",
-        "oxygen",
-        "carbon",
-        "water",
-        "nutrient",
-        "biomass",
-        "cultivation"
+        "study",
+        "long",
+        "long duration",
+        "duration",
+        "health",
+        "results",
+        "activity",
+        "reduction",
+        "decreased",
+        "human"
       ],
-      "representative_docs": [],
-      "doc_count": 38,
-      "description": "Plant growth in space and bioregenerative life support systems"
-    },
-    {
-      "topic_id": 7,
-      "label": "Microbial Behavior and Contamination",
-      "top_words": [
-        "microbe",
-        "bacteria",
-        "biofilm",
-        "contamination",
-        "microbial",
-        "pathogen",
-        "virulence",
-        "antimicrobial",
-        "growth",
-        "colony",
-        "resistance",
-        "spacecraft",
-        "surface",
-        "environmental",
-        "control"
-      ],
-      "representative_docs": [],
-      "doc_count": 34,
-      "description": "Microbial adaptation to spaceflight and spacecraft contamination control"
-    },
-    {
-      "topic_id": 8,
-      "label": "Neural and Sensory Systems",
-      "top_words": [
-        "brain",
-        "neural",
-        "cognitive",
-        "sensory",
-        "vestibular",
-        "perception",
-        "motor",
-        "coordination",
-        "adaptation",
-        "plasticity",
-        "neuron",
-        "synapse",
-        "learning",
-        "memory",
-        "behavior"
-      ],
-      "representative_docs": [],
-      "doc_count": 29,
-      "description": "Neurological adaptations to spaceflight and sensorimotor function"
-    },
-    {
-      "topic_id": 9,
-      "label": "Cellular Metabolism and Stress",
-      "top_words": [
-        "metabolism",
-        "mitochondria",
-        "energy",
-        "atp",
-        "glucose",
-        "oxidative",
-        "stress",
-        "ros",
-        "antioxidant",
-        "enzyme",
-        "metabolic",
-        "pathway",
-        "respiration",
-        "cell",
-        "homeostasis"
-      ],
-      "representative_docs": [],
-      "doc_count": 27,
-      "description": "Metabolic changes and oxidative stress responses in microgravity"
+      "topic_weight": 0.142859201282959
     }
-  ],
-  "total_documents": 607,
-  "num_topics": 10,
-  "model_params": {
-    "min_topic_size": 15,
-    "nr_topics": 10,
-    "embedding_model": "all-MiniLM-L6-v2"
-  }
+  ]
 }

@@ -1,0 +1,10 @@
+{
+  "total_papers": 607,
+  "papers_with_summaries": 200,
+  "extractive_summaries": 200,
+  "abstractive_summaries": 200,
+  "consensus_claims": 15,
+  "additional_sources": 1507,
+  "total_data_points": 2114,
+  "last_updated": "2025-10-04"
+}

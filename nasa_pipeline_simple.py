@@ -161,6 +161,8 @@ def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[st
     
     session = requests.Session()
     session.headers.update({'User-Agent': 'Mozilla/5.0'})
+    
+    import time
     for _, row in tqdm(df.iterrows(), total=len(df), desc="Downloading PDFs"):
         paper_id = row['id']
         title = row['title']
@@ -174,6 +176,9 @@ def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[st
             continue
         
         try:
+            # Rate limiting: wait between requests
+            time.sleep(2)  # 2 second delay between requests
+            
             # First resolve PMC to direct PDF
             pdf_url = _resolve_pmc_pdf(link, session) or link
             ok = _download_url_to_file(pdf_url, pdf_path, session)
@@ -183,6 +188,7 @@ def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[st
             else:
                 # As a last resort, save HTML for text extraction fallback
                 try:
+                    time.sleep(1)  # Additional delay for fallback
                     r = session.get(link, timeout=20)
                     if r.status_code == 200 and len(r.text) > 1000:
                         html_path = PAPERS_DIR / f"paper_{paper_id}.html"
@@ -214,6 +220,25 @@ def _html_to_text(html_path: Path) -> str:
     except Exception:
         return ""
 
+def _is_html_javascript_garbage(text: str) -> bool:
+    """Check if text contains HTML/JavaScript instead of actual content."""
+    if not text or len(text) < 100:
+        return True
+    
+    # Check for common HTML/JS indicators
+    garbage_indicators = [
+        'script type', 'HHS Vulnerability', 'cloudpmc', 
+        'window.ncbi', '<html>', '</body>', '<div', 'crossorigin',
+        'const POW_CHALLENGE', 'module crossorigin'
+    ]
+    
+    text_lower = text.lower()[:1000]  # Check first 1000 chars
+    for indicator in garbage_indicators:
+        if indicator.lower() in text_lower:
+            return True
+    
+    return False
+
 def pdf_to_text(pdf_path: Path) -> str:
     """Extract text from PDF using PyMuPDF."""
     try:
@@ -221,7 +246,11 @@ def pdf_to_text(pdf_path: Path) -> str:
         if pdf_path.suffix == '.pdf' and pdf_path.stat().st_size < 10000:
             # Likely a text file renamed as PDF for testing
             with open(pdf_path, 'r', encoding='utf-8') as f:
-                return clean_text(f.read())
+                text = f.read()
+                if _is_html_javascript_garbage(text):
+                    logger.warning(f"Detected HTML/JS garbage in {pdf_path}, skipping")
+                    return ""
+                return clean_text(text)
         
         doc = fitz.open(pdf_path)
         text = ""
@@ -231,6 +260,15 @@ def pdf_to_text(pdf_path: Path) -> str:
             text += page.get_text()
         
         doc.close()
+        
+        # Validate that we got real content, not HTML/JS
+        if _is_html_javascript_garbage(text):
+            logger.warning(f"Detected HTML/JS garbage in {pdf_path}, trying HTML fallback")
+            html_path = pdf_path.with_suffix('.html')
+            if html_path.exists():
+                return _html_to_text(html_path)
+            return ""
+        
         return clean_text(text)
     
     except Exception as e:
@@ -238,7 +276,10 @@ def pdf_to_text(pdf_path: Path) -> str:
         # Try reading as text file as fallback
         try:
             with open(pdf_path, 'r', encoding='utf-8') as f:
-                return clean_text(f.read())
+                text = f.read()
+                if _is_html_javascript_garbage(text):
+                    return ""
+                return clean_text(text)
         except Exception:
             # Try HTML fallback
             html_path = pdf_path.with_suffix('.html')
