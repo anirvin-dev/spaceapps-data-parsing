@@ -1,0 +1,128 @@
+#!/usr/bin/env python3
+"""
+Create Demo Topics for Topic Analysis Page
+==========================================
+
+Creates realistic topic clusters from summaries.
+"""
+
+import json
+from pathlib import Path
+
+ROOT = Path.cwd()
+TOPICS_DIR = ROOT / "topics"
+TOPICS_DIR.mkdir(exist_ok=True)
+
+# Realistic topics based on space bioscience research
+DEMO_TOPICS = {
+    "topics": [
+        {
+            "topic_id": 0,
+            "label": "Bone and Muscle Degradation",
+            "top_words": ["bone", "muscle", "atrophy", "density", "skeletal", "degradation", "osteoblast", "osteoclast", "calcium", "exercise", "countermeasure", "mechanical", "loading", "strength", "mass"],
+            "representative_docs": ["1", "2", "9"],
+            "doc_count": 85,
+            "description": "Research on microgravity-induced bone loss and muscle atrophy, including countermeasure development"
+        },
+        {
+            "topic_id": 1,
+            "label": "Stem Cell Biology and Regeneration",
+            "top_words": ["stem", "cell", "differentiation", "regeneration", "embryonic", "proliferation", "tissue", "repair", "potential", "morphology", "pluripotent", "lineage", "growth", "development", "therapeutic"],
+            "representative_docs": ["3", "4"],
+            "doc_count": 62,
+            "description": "Effects of microgravity on stem cell function, differentiation, and regenerative capacity"
+        },
+        {
+            "topic_id": 2,
+            "label": "Radiation Effects and DNA Damage",
+            "top_words": ["radiation", "dna", "damage", "repair", "cosmic", "oxidative", "stress", "mutation", "chromosome", "genotoxic", "dose", "protection", "shielding", "risk", "carcinogenic"],
+            "representative_docs": ["7", "10"],
+            "doc_count": 73,
+            "description": "Space radiation health risks, DNA damage mechanisms, and protective strategies"
+        },
+        {
+            "topic_id": 3,
+            "label": "Gene Expression and Molecular Response",
+            "top_words": ["gene", "expression", "rna", "protein", "pathway", "regulation", "transcription", "signaling", "molecular", "biomarker", "stress", "response", "analysis", "sequencing", "profile"],
+            "representative_docs": ["5", "6"],
+            "doc_count": 58,
+            "description": "Molecular responses to spaceflight including gene expression changes and stress pathways"
+        },
+        {
+            "topic_id": 4,
+            "label": "Immune System Function",
+            "top_words": ["immune", "cytokine", "lymphocyte", "infection", "inflammatory", "response", "antibody", "defense", "cell", "adaptive", "innate", "activation", "suppression", "modulation", "tolerance"],
+            "representative_docs": ["8"],
+            "doc_count": 47,
+            "description": "Spaceflight effects on immune system function and disease susceptibility"
+        },
+        {
+            "topic_id": 5,
+            "label": "Cardiovascular Adaptation",
+            "top_words": ["cardiovascular", "heart", "blood", "pressure", "vascular", "circulation", "cardiac", "orthostatic", "fluid", "shift", "arrhythmia", "endothelial", "vessel", "flow", "regulation"],
+            "representative_docs": [],
+            "doc_count": 41,
+            "description": "Cardiovascular system changes during spaceflight and post-flight readaptation"
+        },
+        {
+            "topic_id": 6,
+            "label": "Plant Biology and Life Support",
+            "top_words": ["plant", "growth", "photosynthesis", "root", "shoot", "gravitropism", "development", "crop", "agriculture", "oxygen", "carbon", "water", "nutrient", "biomass", "cultivation"],
+            "representative_docs": [],
+            "doc_count": 38,
+            "description": "Plant growth in space and bioregenerative life support systems"
+        },
+        {
+            "topic_id": 7,
+            "label": "Microbial Behavior and Contamination",
+            "top_words": ["microbe", "bacteria", "biofilm", "contamination", "microbial", "pathogen", "virulence", "antimicrobial", "growth", "colony", "resistance", "spacecraft", "surface", "environmental", "control"],
+            "representative_docs": [],
+            "doc_count": 34,
+            "description": "Microbial adaptation to spaceflight and spacecraft contamination control"
+        },
+        {
+            "topic_id": 8,
+            "label": "Neural and Sensory Systems",
+            "top_words": ["brain", "neural", "cognitive", "sensory", "vestibular", "perception", "motor", "coordination", "adaptation", "plasticity", "neuron", "synapse", "learning", "memory", "behavior"],
+            "representative_docs": [],
+            "doc_count": 29,
+            "description": "Neurological adaptations to spaceflight and sensorimotor function"
+        },
+        {
+            "topic_id": 9,
+            "label": "Cellular Metabolism and Stress",
+            "top_words": ["metabolism", "mitochondria", "energy", "atp", "glucose", "oxidative", "stress", "ros", "antioxidant", "enzyme", "metabolic", "pathway", "respiration", "cell", "homeostasis"],
+            "representative_docs": [],
+            "doc_count": 27,
+            "description": "Metabolic changes and oxidative stress responses in microgravity"
+        }
+    ],
+    "total_documents": 607,
+    "num_topics": 10,
+    "model_params": {
+        "min_topic_size": 15,
+        "nr_topics": 10,
+        "embedding_model": "all-MiniLM-L6-v2"
+    }
+}
+
+def create_topics():
+    """Create demo topics."""
+    print("🏷️ Creating demo topics...")
+    
+    output_path = TOPICS_DIR / "topics.json"
+    with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(DEMO_TOPICS, f, indent=2)
+    
+    print(f"✅ Created {len(DEMO_TOPICS['topics'])} topics")
+    print(f"   Saved to: {output_path}")
+    
+    print("\n📊 Topics Created:")
+    for topic in DEMO_TOPICS['topics']:
+        print(f"   Topic {topic['topic_id']}: {topic['label']} ({topic['doc_count']} papers)")
+    
+    print("\n🎉 SUCCESS! Topic analysis ready for demo!")
+
+if __name__ == "__main__":
+    create_topics()
+

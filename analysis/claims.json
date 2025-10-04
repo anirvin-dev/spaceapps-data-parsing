@@ -1,0 +1,112 @@
+{
+  "total_claims": 45,
+  "unique_claims": 15,
+  "claims": {
+    "microgravity_reduces_bone density": {
+      "claim": "microgravity reduces bone density",
+      "supporting_papers": 12,
+      "contradicting_papers": 1,
+      "consensus_score": 85.3,
+      "confidence_badge": "strong_consensus",
+      "supporting_snippets": [
+        {
+          "paper_id": "1",
+          "sentence": "Exposure to microgravity for 30 days resulted in a significant 15% reduction in bone mineral density in weight-bearing bones.",
+          "section": "results"
+        },
+        {
+          "paper_id": "2",
+          "sentence": "Microgravity conditions induced accelerated bone loss through increased osteoclastic activity.",
+          "section": "conclusion"
+        },
+        {
+          "paper_id": "6",
+          "sentence": "Prolonged spaceflight leads to substantial decreases in bone density, particularly in the hip and spine regions.",
+          "section": "results"
+        }
+      ],
+      "contradicting_snippets": []
+    },
+    "radiation_increases_dna damage": {
+      "claim": "radiation increases DNA damage",
+      "supporting_papers": 8,
+      "contradicting_papers": 0,
+      "consensus_score": 92.5,
+      "confidence_badge": "strong_consensus",
+      "supporting_snippets": [
+        {
+          "paper_id": "7",
+          "sentence": "Space radiation exposure resulted in elevated levels of DNA double-strand breaks in all tested cell types.",
+          "section": "results"
+        },
+        {
+          "paper_id": "8",
+          "sentence": "Ionizing radiation significantly increases DNA damage markers and oxidative stress responses.",
+          "section": "results"
+        }
+      ],
+      "contradicting_snippets": []
+    },
+    "exercise_reduces_muscle atrophy": {
+      "claim": "exercise reduces muscle atrophy",
+      "supporting_papers": 10,
+      "contradicting_papers": 0,
+      "consensus_score": 88.7,
+      "confidence_badge": "strong_consensus",
+      "supporting_snippets": [
+        {
+          "paper_id": "3",
+          "sentence": "Resistance exercise protocols effectively mitigated muscle mass loss during simulated microgravity exposure.",
+          "section": "results"
+        },
+        {
+          "paper_id": "4",
+          "sentence": "Daily exercise regimens showed significant protective effects against microgravity-induced muscle atrophy.",
+          "section": "conclusion"
+        }
+      ],
+      "contradicting_snippets": []
+    },
+    "microgravity_affects_immune function": {
+      "claim": "microgravity affects immune function",
+      "supporting_papers": 7,
+      "contradicting_papers": 2,
+      "consensus_score": 65.4,
+      "confidence_badge": "moderate_consensus",
+      "supporting_snippets": [
+        {
+          "paper_id": "5",
+          "sentence": "Spaceflight conditions altered immune cell distribution and cytokine production patterns.",
+          "section": "results"
+        },
+        {
+          "paper_id": "9",
+          "sentence": "Microgravity exposure modulated T-cell activation and antibody responses.",
+          "section": "results"
+        }
+      ],
+      "contradicting_snippets": [
+        {
+          "paper_id": "10",
+          "sentence": "No significant changes in immune function were observed during short-duration exposure.",
+          "section": "results"
+        }
+      ]
+    },
+    "artificial gravity_prevents_bone loss": {
+      "claim": "artificial gravity prevents bone loss",
+      "supporting_papers": 5,
+      "contradicting_papers": 1,
+      "consensus_score": 72.1,
+      "confidence_badge": "moderate_consensus",
+      "supporting_snippets": [
+        {
+          "paper_id": "2",
+          "sentence": "Intermittent artificial gravity significantly reduced bone mineral density loss compared to control groups.",
+          "section": "results"
+        }
+      ],
+      "contradicting_snippets": []
+    }
+  }
+}

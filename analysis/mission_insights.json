@@ -1,0 +1,78 @@
+{
+  "total_insights": 15,
+  "insights": [
+    {
+      "title": "Radiation Increases DNA Damage",
+      "category": "Health Risk",
+      "risk_level": "high",
+      "confidence": 92.5,
+      "confidence_badge": "strong_consensus",
+      "finding": "Space radiation exposure resulted in elevated levels of DNA double-strand breaks in all tested cell types.",
+      "recommendation": "Consider enhanced radiation shielding or scheduling EVAs during solar minimum periods",
+      "supporting_papers": 8,
+      "top_papers": [
+        "7",
+        "8",
+        "6"
+      ]
+    },
+    {
+      "title": "Microgravity Reduces Bone Density",
+      "category": "Health Risk",
+      "risk_level": "high",
+      "confidence": 85.3,
+      "confidence_badge": "strong_consensus",
+      "finding": "Exposure to microgravity for 30 days resulted in a significant 15% reduction in bone mineral density in weight-bearing bones.",
+      "recommendation": "Implement resistance exercise protocols and nutritional countermeasures",
+      "supporting_papers": 12,
+      "top_papers": [
+        "1",
+        "2",
+        "6"
+      ]
+    },
+    {
+      "title": "Exercise Reduces Muscle Atrophy",
+      "category": "Countermeasure",
+      "risk_level": "low",
+      "confidence": 88.7,
+      "confidence_badge": "strong_consensus",
+      "finding": "Resistance exercise protocols effectively mitigated muscle mass loss during simulated microgravity exposure.",
+      "recommendation": "Implement resistance exercise protocols and nutritional countermeasures",
+      "supporting_papers": 10,
+      "top_papers": [
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    {
+      "title": "Artificial Gravity Prevents Bone Loss",
+      "category": "Countermeasure",
+      "risk_level": "medium",
+      "confidence": 72.1,
+      "confidence_badge": "moderate_consensus",
+      "finding": "Intermittent artificial gravity significantly reduced bone mineral density loss compared to control groups.",
+      "recommendation": "Investigate countermeasures for musculoskeletal degradation",
+      "supporting_papers": 5,
+      "top_papers": [
+        "2",
+        "6"
+      ]
+    },
+    {
+      "title": "Microgravity Affects Immune Function",
+      "category": "Health Risk",
+      "risk_level": "medium",
+      "confidence": 65.4,
+      "confidence_badge": "moderate_consensus",
+      "finding": "Spaceflight conditions altered immune cell distribution and cytokine production patterns.",
+      "recommendation": "Investigate Health Risk implications and develop appropriate countermeasures",
+      "supporting_papers": 7,
+      "top_papers": [
+        "5",
+        "9"
+      ]
+    }
+  ]
+}

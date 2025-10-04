@@ -1,0 +1,201 @@
+{
+  "total_sources": 648,
+  "sources_by_category": {
+    "space_bioscience": 607,
+    "mission": 10,
+    "space_biology": 10,
+    "space_research": 10,
+    "space_physics": 5,
+    "biological": 3,
+    "physical_sciences": 3
+  },
+  "sources_by_type": {
+    "Research Paper": 607,
+    "Biological Experiment": 10,
+    "Research Project": 10,
+    "Physical Science Experiment": 5,
+    "OSDR": 3,
+    "PSI": 3,
+    "Long-duration habitat": 1,
+    "Lunar exploration": 1,
+    "Mars exploration": 1,
+    "Commercial crew": 1,
+    "Biomedical research": 1,
+    "ISS experiment": 1,
+    "Biology experiment": 1,
+    "Habitat technology": 1,
+    "Robotics": 1,
+    "Physics experiment": 1
+  },
+  "sources_by_platform": {
+    "Various": 623,
+    "ISS": 14,
+    "Artemis": 1,
+    "Mars2020": 1,
+    "SpaceX-Demo": 1,
+    "Twins-Study": 1,
+    "Veggie": 1,
+    "Rodent-Research": 1,
+    "BEAM": 1,
+    "SPHERES": 1,
+    "Alpha-Magnetic": 1,
+    "Spaceflight": 1,
+    "Parabolic flight": 1
+  },
+  "missions": [
+    {
+      "id": "ISS",
+      "name": "International Space Station",
+      "type": "Long-duration habitat",
+      "status": "Ongoing"
+    },
+    {
+      "id": "Artemis",
+      "name": "Artemis Program",
+      "type": "Lunar exploration",
+      "status": "Planned"
+    },
+    {
+      "id": "Mars2020",
+      "name": "Mars 2020 Perseverance",
+      "type": "Mars exploration",
+      "status": "Active"
+    },
+    {
+      "id": "SpaceX-Demo",
+      "name": "SpaceX Demo Missions",
+      "type": "Commercial crew",
+      "status": "Completed"
+    },
+    {
+      "id": "Twins-Study",
+      "name": "NASA Twins Study",
+      "type": "Biomedical research",
+      "status": "Completed"
+    },
+    {
+      "id": "Veggie",
+      "name": "Veggie Plant Growth System",
+      "type": "ISS experiment",
+      "status": "Ongoing"
+    },
+    {
+      "id": "Rodent-Research",
+      "name": "Rodent Research Missions",
+      "type": "Biology experiment",
+      "status": "Ongoing"
+    },
+    {
+      "id": "BEAM",
+      "name": "Bigelow Expandable Activity Module",
+      "type": "Habitat technology",
+      "status": "Completed"
+    },
+    {
+      "id": "SPHERES",
+      "name": "Synchronized Position Hold Engage Reorient",
+      "type": "Robotics",
+      "status": "Completed"
+    },
+    {
+      "id": "Alpha-Magnetic",
+      "name": "Alpha Magnetic Spectrometer",
+      "type": "Physics experiment",
+      "status": "Ongoing"
+    }
+  ],
+  "bioscience_experiments": [
+    {
+      "id": "OSD-37",
+      "name": "Rodent Research-1",
+      "focus": "Muscle atrophy",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-38",
+      "name": "Rodent Research-3",
+      "focus": "Eye disease",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-48",
+      "name": "Plant Gravity Perception",
+      "focus": "Plant biology",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-100",
+      "name": "Cell Culture in Microgravity",
+      "focus": "Cell biology",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-120",
+      "name": "Immune System Function",
+      "focus": "Immunology",
+      "platform": "Spaceflight"
+    },
+    {
+      "id": "OSD-142",
+      "name": "Bone Density Loss Study",
+      "focus": "Skeletal health",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-156",
+      "name": "Cardiovascular Adaptation",
+      "focus": "Heart function",
+      "platform": "Parabolic flight"
+    },
+    {
+      "id": "OSD-178",
+      "name": "Radiation Exposure Effects",
+      "focus": "DNA damage",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-201",
+      "name": "Microbiome Changes",
+      "focus": "Microbiology",
+      "platform": "ISS"
+    },
+    {
+      "id": "OSD-234",
+      "name": "Plant Photomorphogenesis",
+      "focus": "Plant growth",
+      "platform": "ISS"
+    }
+  ],
+  "physical_sciences_experiments": [
+    {
+      "id": "PSI-100",
+      "name": "Fluid Physics",
+      "focus": "Capillary flow",
+      "platform": "ISS"
+    },
+    {
+      "id": "PSI-112",
+      "name": "Combustion Science",
+      "focus": "Fire behavior",
+      "platform": "ISS"
+    },
+    {
+      "id": "PSI-145",
+      "name": "Materials Science",
+      "focus": "Alloy formation",
+      "platform": "ISS"
+    },
+    {
+      "id": "PSI-167",
+      "name": "Colloidal Dynamics",
+      "focus": "Particle behavior",
+      "platform": "ISS"
+    },
+    {
+      "id": "PSI-189",
+      "name": "Crystal Growth",
+      "focus": "Protein crystallization",
+      "platform": "ISS"
+    }
+  ]
+}

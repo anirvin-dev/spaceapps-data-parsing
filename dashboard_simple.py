@@ -13,6 +13,8 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
+import requests
+from bs4 import BeautifulSoup
 from collections import Counter
 import plotly.express as px
 import plotly.graph_objects as go
@@ -210,6 +212,75 @@ def show_search_page(data):
         else:
             st.write(f"No papers found matching '{search_term}'")
 
+def show_uploader_page(data):
+    """Upload a PDF or paste a URL and summarize it on the fly."""
+    st.header("📤 Upload or Paste URL for On-the-fly Summary")
+    
+    import tempfile
+    from transformers import pipeline
+    import fitz
+    
+    @st.cache_resource
+    def get_summarizer(model_key: str = 'facebook/bart-large-cnn'):
+        return pipeline("summarization", model=model_key, device=-1)
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        uploaded = st.file_uploader("Upload a PDF (<= 20MB)", type=["pdf"])
+    
+    with col2:
+        url = st.text_input("Or paste a URL (PDF or article page)")
+    
+    model_choice = st.selectbox("Model", ["facebook/bart-large-cnn", "t5-small", "google/pegasus-xsum"], index=0)
+    
+    def extract_text_from_pdf_bytes(data_bytes: bytes) -> str:
+        try:
+            with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+                tmp.write(data_bytes)
+                tmp.flush()
+                doc = fitz.open(tmp.name)
+                full = "".join([doc.load_page(i).get_text() for i in range(len(doc))])
+                doc.close()
+                return full
+        except Exception:
+            return ""
+    
+    def extract_text_from_url(u: str) -> str:
+        try:
+            r = requests.get(u, timeout=20, headers={'User-Agent': 'Mozilla/5.0'})
+            ctype = r.headers.get('content-type', '')
+            if 'pdf' in ctype or u.lower().endswith('.pdf'):
+                return extract_text_from_pdf_bytes(r.content)
+            soup = BeautifulSoup(r.text, 'lxml')
+            for t in soup(["script","style","nav","footer","header","form"]):
+                t.decompose()
+            return soup.get_text(separator='\n')
+        except Exception:
+            return ""
+    
+    run = st.button("Summarize")
+    if run:
+        with st.spinner("Summarizing..."):
+            text = ""
+            if uploaded is not None:
+                text = extract_text_from_pdf_bytes(uploaded.read())
+            elif url:
+                text = extract_text_from_url(url)
+            else:
+                st.warning("Please upload a PDF or paste a URL")
+                return
+            text = (text or "").strip()
+            if not text:
+                st.error("Could not extract text from the source.")
+                return
+            # Truncate for model
+            text = text[:3000]
+            summarizer = get_summarizer(model_choice)
+            out = summarizer(text, max_length=180, min_length=60, do_sample=False)
+            st.subheader("🧾 Summary")
+            st.write(out[0]['summary_text'])
+
 def main():
     """Main Streamlit app."""
     st.set_page_config(
@@ -228,7 +299,7 @@ def main():
     st.sidebar.title("Navigation")
     page = st.sidebar.selectbox(
         "Choose a page:",
-        ["Overview", "Paper Explorer", "Topic Analysis", "Search Papers"]
+        ["Overview", "Paper Explorer", "Topic Analysis", "Search Papers", "Upload/URL Summarizer"]
     )
     
     if page == "Overview":
@@ -239,6 +310,8 @@ def main():
         show_topic_analysis_page(data)
     elif page == "Search Papers":
         show_search_page(data)
+    elif page == "Upload/URL Summarizer":
+        show_uploader_page(data)
     
     # Footer
     st.sidebar.markdown("---")

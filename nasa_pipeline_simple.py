@@ -30,6 +30,7 @@ from collections import Counter
 
 import pandas as pd
 import requests
+from bs4 import BeautifulSoup
 from tqdm import tqdm
 import fitz  # PyMuPDF
 from sumy.parsers.plaintext import PlaintextParser
@@ -103,6 +104,52 @@ def clean_text(text: str) -> str:
     
     return text.strip()
 
+def _resolve_pmc_pdf(link: str, session: requests.Session) -> Optional[str]:
+    """Resolve a PMC article HTML link to a direct PDF URL if possible."""
+    try:
+        if "pmc.ncbi.nlm.nih.gov" in link or "ncbi.nlm.nih.gov/pmc" in link:
+            # Normalize to pmc host
+            link = link.replace("www.ncbi.nlm.nih.gov/pmc", "pmc.ncbi.nlm.nih.gov")
+            if not link.endswith('/'):
+                link = link + '/'
+            # Fetch HTML and find PDF anchors
+            resp = session.get(link, timeout=20)
+            if resp.status_code != 200:
+                return None
+            soup = BeautifulSoup(resp.text, 'lxml')
+            # Common PMC PDF anchors
+            a = soup.select_one('a.pdf-link, a.obj_galley_link, a[href$=".pdf"]')
+            if a and a.get('href'):
+                href = a['href']
+                if href.startswith('/'):
+                    return f"https://pmc.ncbi.nlm.nih.gov{href}"
+                if href.startswith('http'):
+                    return href
+            # Fallback: try /pdf/ path
+            if link.endswith('/'):
+                candidate = link + 'pdf/'
+            else:
+                candidate = link + '/pdf/'
+            # Many PMC pages redirect /pdf/ -> concrete file
+            r2 = session.get(candidate, allow_redirects=True, timeout=20)
+            ctype = r2.headers.get('content-type', '')
+            if r2.status_code == 200 and ('pdf' in ctype or r2.url.endswith('.pdf')):
+                return r2.url
+        return None
+    except Exception:
+        return None
+
+def _download_url_to_file(url: str, dest: Path, session: requests.Session) -> bool:
+    try:
+        r = session.get(url, timeout=30)
+        ctype = r.headers.get('content-type', '')
+        if r.status_code == 200 and ('pdf' in ctype or url.lower().endswith('.pdf')):
+            dest.write_bytes(r.content)
+            return True
+        return False
+    except Exception:
+        return False
+
 def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[str, int]:
     """Download PDFs from the provided links."""
     logger.info("📥 Starting PDF download...")
@@ -112,6 +159,8 @@ def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[st
     
     stats = {"downloaded": 0, "failed": 0, "skipped": 0}
     
+    session = requests.Session()
+    session.headers.update({'User-Agent': 'Mozilla/5.0'})
     for _, row in tqdm(df.iterrows(), total=len(df), desc="Downloading PDFs"):
         paper_id = row['id']
         title = row['title']
@@ -125,34 +174,45 @@ def download_papers(df: pd.DataFrame, sample_n: Optional[int] = None) -> Dict[st
             continue
         
         try:
-            # Try to get PDF from PMC
-            if "ncbi.nlm.nih.gov" in link:
-                # Convert to PDF URL
-                pdf_url = link.replace("/articles/", "/articles/") + "/pdf/"
-            else:
-                pdf_url = link
-            
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-            }
-            
-            response = requests.get(pdf_url, headers=headers, timeout=30)
-            
-            if response.status_code == 200 and response.headers.get('content-type', '').startswith('application/pdf'):
-                with open(pdf_path, 'wb') as f:
-                    f.write(response.content)
+            # First resolve PMC to direct PDF
+            pdf_url = _resolve_pmc_pdf(link, session) or link
+            ok = _download_url_to_file(pdf_url, pdf_path, session)
+            if ok:
                 logger.debug(f"Downloaded paper {paper_id}: {title[:50]}...")
                 stats["downloaded"] += 1
             else:
-                logger.warning(f"Failed to download PDF for paper {paper_id}: {response.status_code}")
-                stats["failed"] += 1
-                
+                # As a last resort, save HTML for text extraction fallback
+                try:
+                    r = session.get(link, timeout=20)
+                    if r.status_code == 200 and len(r.text) > 1000:
+                        html_path = PAPERS_DIR / f"paper_{paper_id}.html"
+                        html_path.write_text(r.text, encoding='utf-8')
+                        logger.debug(f"Saved HTML fallback for paper {paper_id}")
+                        stats["downloaded"] += 1
+                    else:
+                        logger.warning(f"Failed to download PDF/HTML for paper {paper_id}")
+                        stats["failed"] += 1
+                except Exception:
+                    logger.warning(f"Failed to download PDF/HTML for paper {paper_id}")
+                    stats["failed"] += 1
         except Exception as e:
             logger.error(f"Error downloading paper {paper_id}: {e}")
             stats["failed"] += 1
     
     logger.info(f"📥 Download complete: {stats}")
     return stats
+
+def _html_to_text(html_path: Path) -> str:
+    try:
+        html = html_path.read_text(encoding='utf-8', errors='ignore')
+        soup = BeautifulSoup(html, 'lxml')
+        # Remove scripts/styles
+        for tag in soup(["script", "style", "nav", "footer", "header", "form"]):
+            tag.decompose()
+        text = soup.get_text(separator='\n')
+        return clean_text(text)
+    except Exception:
+        return ""
 
 def pdf_to_text(pdf_path: Path) -> str:
     """Extract text from PDF using PyMuPDF."""
@@ -179,7 +239,11 @@ def pdf_to_text(pdf_path: Path) -> str:
         try:
             with open(pdf_path, 'r', encoding='utf-8') as f:
                 return clean_text(f.read())
-        except:
+        except Exception:
+            # Try HTML fallback
+            html_path = pdf_path.with_suffix('.html')
+            if html_path.exists():
+                return _html_to_text(html_path)
             return ""
 
 def extract_sections_from_text(text: str) -> Dict[str, str]:
@@ -596,3 +660,4 @@ Examples:
 
 if __name__ == "__main__":
     main()
+

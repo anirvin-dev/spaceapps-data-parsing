@@ -22,3 +22,7 @@ numpy>=1.24.0
 scipy>=1.10.0
 spacy>=3.6.0
 # en_core_sci_sm will be installed separately via spacy
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+httpx>=0.27.0
+openai>=1.40.0
