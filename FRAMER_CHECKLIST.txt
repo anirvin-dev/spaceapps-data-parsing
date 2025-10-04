@@ -1,0 +1,316 @@
+✅ FRAMER MIGRATION CHECKLIST
+==============================
+
+Use this checklist to track your progress!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 1: SETUP & COPY DATA (15 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] 1.1 Open your Framer project
+[ ] 1.2 Create `public/api/` folder
+[ ] 1.3 Copy all 7 JSON files from `framer_export/` to `public/api/`
+    Files to copy:
+    [ ] papers.json (737 KB)
+    [ ] claims.json (23 KB)
+    [ ] topics.json (23 KB)
+    [ ] gaps.json (6 KB)
+    [ ] insights.json (10 KB)
+    [ ] sources.json (551 KB)
+    [ ] stats.json (0.2 KB)
+[ ] 1.4 Test one fetch in browser console:
+    ```js
+    fetch('/api/stats.json').then(r => r.json()).then(console.log)
+    ```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 2: CREATE DATA HOOKS (30 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] 2.1 Create `hooks/useData.ts` file
+[ ] 2.2 Add `usePapers()` hook
+[ ] 2.3 Add `useClaims()` hook
+[ ] 2.4 Add `useTopics()` hook
+[ ] 2.5 Add `useGaps()` hook
+[ ] 2.6 Add `useInsights()` hook
+[ ] 2.7 Add `useSources()` hook
+[ ] 2.8 Add `useStats()` hook
+[ ] 2.9 Test hooks work by importing and using in a component
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 3: BUILD CORE PAGES (2-3 hours)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PAGE 1: OVERVIEW (30 min)
+[ ] 3.1 Create Overview/Home page component
+[ ] 3.2 Fetch stats.json
+[ ] 3.3 Display 6 stat cards:
+    [ ] 607 Papers (blue)
+    [ ] 2,114 Sources (green)
+    [ ] 20 Claims (orange)
+    [ ] 10 Topics (purple)
+    [ ] 12 Gaps (red)
+    [ ] 20 Insights (pink)
+[ ] 3.4 Add hero section with project description
+[ ] 3.5 Add navigation links to other pages
+[ ] 3.6 Test and verify all stats show correctly
+
+PAGE 2: PAPERS (40 min)
+[ ] 3.7 Create Papers page component
+[ ] 3.8 Fetch papers.json
+[ ] 3.9 Display paper cards with:
+    [ ] Title
+    [ ] Extractive summary
+    [ ] Abstractive summary
+    [ ] Link to original paper
+[ ] 3.10 Add search bar (filter by title)
+[ ] 3.11 Add "Show summaries only" toggle
+[ ] 3.12 Test with 10 papers first, then all 607
+
+PAGE 3: CONSENSUS CLAIMS (40 min)
+[ ] 3.13 Create Claims page component
+[ ] 3.14 Fetch claims.json
+[ ] 3.15 Display claim cards with:
+    [ ] Claim title
+    [ ] Consensus score (%) with progress bar
+    [ ] Badge color (green >85%, yellow <85%)
+    [ ] Supporting vs contradicting counts
+    [ ] Evidence snippets (expandable)
+[ ] 3.16 Sort by consensus score (highest first)
+[ ] 3.17 Test all 20 claims display correctly
+
+PAGE 4: TOPICS (30 min)
+[ ] 3.18 Create Topics page component
+[ ] 3.19 Fetch topics.json
+[ ] 3.20 Display topic cards with:
+    [ ] Topic name + number (1-10)
+    [ ] Paper count
+    [ ] Top 10-15 keywords
+    [ ] Representative papers (expandable)
+[ ] 3.21 Use different color per topic
+[ ] 3.22 Test all 10 topics display
+
+PAGE 5: KNOWLEDGE GAPS (30 min)
+[ ] 3.23 Create Gaps page component
+[ ] 3.24 Fetch gaps.json
+[ ] 3.25 Display gap cards with:
+    [ ] Priority badge (High/Medium/Low)
+    [ ] Gap score %
+    [ ] Mission relevance %
+    [ ] Keywords
+    [ ] Paper density note
+    [ ] Recommended experiments list
+[ ] 3.26 Sort by gap score (highest first)
+[ ] 3.27 Test all 12 gaps display
+
+PAGE 6: MISSION INSIGHTS (40 min)
+[ ] 3.28 Create Insights page component
+[ ] 3.29 Fetch insights.json
+[ ] 3.30 Display insight cards with:
+    [ ] Risk level badge (High/Medium/Low)
+    [ ] Title
+    [ ] Confidence % with progress bar
+    [ ] Category tag
+    [ ] Finding text
+    [ ] Recommendation text
+    [ ] Supporting paper count
+[ ] 3.31 Group by risk level (High → Medium → Low)
+[ ] 3.32 Test all 20 insights display
+
+PAGE 7: ADDITIONAL SOURCES (30 min)
+[ ] 3.33 Create Sources page component
+[ ] 3.34 Fetch sources.json
+[ ] 3.35 Display source cards with:
+    [ ] Source ID
+    [ ] Title
+    [ ] Source type badge
+    [ ] Type and category
+    [ ] Description
+    [ ] Link to source
+[ ] 3.36 Add filter dropdown (OSDR/Task Book/Missions/PSI)
+[ ] 3.37 Add search by title
+[ ] 3.38 Test with filtered views
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 4: STYLING & POLISH (1 hour)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] 4.1 Match color scheme to your Framer theme
+[ ] 4.2 Ensure consistent typography
+[ ] 4.3 Add proper spacing (margins/padding)
+[ ] 4.4 Add hover states for cards
+[ ] 4.5 Add loading spinners for data fetching
+[ ] 4.6 Add error states for failed fetches
+[ ] 4.7 Ensure mobile responsive design
+    [ ] Cards stack vertically on mobile
+    [ ] Text remains readable
+    [ ] Buttons/links are tappable
+[ ] 4.8 Add smooth transitions/animations
+[ ] 4.9 Polish navigation between pages
+[ ] 4.10 Verify all colors match your theme
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 5: TESTING (30 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] 5.1 Test Overview page loads and stats are correct
+[ ] 5.2 Test Papers page:
+    [ ] All 607 papers display
+    [ ] Search works
+    [ ] Summaries are readable
+    [ ] Links open correctly
+[ ] 5.3 Test Claims page:
+    [ ] All 20 claims display
+    [ ] Progress bars show correctly
+    [ ] Evidence snippets expand/collapse
+    [ ] Colors match consensus levels
+[ ] 5.4 Test Topics page:
+    [ ] All 10 topics display
+    [ ] Keywords are readable
+    [ ] Paper lists expand/collapse
+[ ] 5.5 Test Gaps page:
+    [ ] All 12 gaps display
+    [ ] Priority badges show correctly
+    [ ] Experiments list properly
+[ ] 5.6 Test Insights page:
+    [ ] All 20 insights display
+    [ ] Risk badges show correctly
+    [ ] Confidence bars work
+[ ] 5.7 Test Sources page:
+    [ ] 1,507 sources available
+    [ ] Filter works
+    [ ] Search works
+    [ ] Links open correctly
+[ ] 5.8 Test on mobile device
+[ ] 5.9 Test on tablet
+[ ] 5.10 Test in different browsers
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PHASE 6: FINAL TOUCHES (30 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[ ] 6.1 Add page titles/metadata
+[ ] 6.2 Add favicon
+[ ] 6.3 Add social share image (optional)
+[ ] 6.4 Verify all navigation works
+[ ] 6.5 Add footer with credits
+[ ] 6.6 Add "About" or "Methodology" section (optional)
+[ ] 6.7 Final responsive check
+[ ] 6.8 Final cross-browser check
+[ ] 6.9 Performance check (load time)
+[ ] 6.10 Deploy to Framer preview/production
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VERIFICATION CHECKLIST
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DATA COMPLETENESS:
+[ ] All 607 papers display
+[ ] All 20 claims display
+[ ] All 10 topics display
+[ ] All 12 gaps display
+[ ] All 20 insights display
+[ ] All 1,507 sources display
+[ ] All stats are correct
+
+FUNCTIONALITY:
+[ ] Search works on Papers page
+[ ] Filter works on Sources page
+[ ] Expandable sections work (evidence, papers, etc.)
+[ ] All external links work
+[ ] Navigation between pages works
+[ ] Loading states appear correctly
+[ ] Error handling works
+
+DESIGN:
+[ ] Colors match theme
+[ ] Typography is consistent
+[ ] Spacing is proper
+[ ] Mobile responsive
+[ ] Animations are smooth
+[ ] No visual bugs
+
+PERFORMANCE:
+[ ] Pages load quickly (<3 seconds)
+[ ] No console errors
+[ ] No broken images
+[ ] No broken links
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+QUICK REFERENCE: DATA FIELDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+papers.json:
+  .id, .title, .link, .extractive_summary, .abstractive_summary
+
+claims.json:
+  .claim, .consensus_score, .confidence_badge, .supporting_papers,
+  .contradicting_papers, .supporting_snippets[].paper_id,
+  .supporting_snippets[].sentence
+
+topics.json:
+  .topic_id, .name, .top_words[], .paper_count, .papers_with_titles[].id,
+  .papers_with_titles[].title
+
+gaps.json:
+  .gap_score, .keywords[], .mission_relevance, .paper_density,
+  .recommended_experiments[]
+
+insights.json:
+  .title, .category, .risk_level, .confidence, .finding,
+  .recommendation, .supporting_papers
+
+sources.json:
+  .source_id, .title, .source, .type, .category, .url, .description
+
+stats.json:
+  .total_papers, .total_sources, .total_claims, .total_topics,
+  .total_gaps, .total_insights
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESTIMATED TIME BREAKDOWN:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Setup & Copy:       15 min
+Data Hooks:         30 min
+Overview Page:      30 min
+Papers Page:        40 min
+Claims Page:        40 min
+Topics Page:        30 min
+Gaps Page:          30 min
+Insights Page:      40 min
+Sources Page:       30 min
+Styling & Polish:   60 min
+Testing:            30 min
+Final Touches:      30 min
+
+TOTAL:             ~6 hours
+
+With your existing Framer theme: ~4 hours
+Focusing on essentials only: ~3 hours
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ WHEN YOU'RE DONE:
+
+You'll have:
+✅ All 607 papers browsable
+✅ All 20 claims with evidence
+✅ All 10 topics with keywords
+✅ All 12 gaps with recommendations
+✅ All 20 insights with risk levels
+✅ All 1,507 sources integrated
+✅ Clean, theme-matched design
+✅ Mobile responsive
+✅ Production-ready
+
+🎉 READY TO WIN THE HACKATHON! 🚀

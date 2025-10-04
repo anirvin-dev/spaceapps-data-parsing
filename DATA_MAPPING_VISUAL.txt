@@ -1,0 +1,392 @@
+📊 VISUAL DATA MAPPING: Dashboard → Framer
+===========================================
+
+🎯 EVERYTHING YOU SEE → WHERE IT COMES FROM → HOW TO DISPLAY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1️⃣ OVERVIEW PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌────────────────────┐         
+│  607 Papers        │  ←───   stats.json      →  Big Number Card (Blue)
+│  2,114 Sources     │  ←───   stats.json      →  Big Number Card (Green)
+│  20 Claims         │  ←───   stats.json      →  Big Number Card (Orange)
+│  10 Topics         │  ←───   stats.json      →  Big Number Card (Purple)
+│  12 Gaps           │  ←───   stats.json      →  Big Number Card (Red)
+│  20 Insights       │  ←───   stats.json      →  Big Number Card (Pink)
+└────────────────────┘
+
+Framer Code:
+```jsx
+fetch('/api/stats.json').then(data => {
+  // data.total_papers = 607
+  // data.total_sources = 2114
+  // data.total_claims = 20
+  // etc.
+})
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+2️⃣ PAPER EXPLORER PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌────────────────────────────────────────┐
+│ Paper 1: Title                         │  ←─  papers.json    →  Card Header
+│                                        │
+│ 📝 Extractive Summary:                 │  ←─  .extractive    →  Text Block
+│ "Key findings extracted..."            │      _summary
+│                                        │
+│ 💡 Abstractive Summary:                │  ←─  .abstractive   →  Text Block
+│ "AI-generated summary..."              │      _summary
+│                                        │
+│ 🔗 Read Full Paper                     │  ←─  .link          →  Button/Link
+└────────────────────────────────────────┘
+
+Each Paper Object:
+{
+  "id": 1,
+  "title": "...",
+  "link": "https://...",
+  "extractive_summary": "...",
+  "abstractive_summary": "...",
+  "has_summary": true
+}
+
+Framer Code:
+```jsx
+papers.map(paper => (
+  <div className="paper-card">
+    <h3>{paper.title}</h3>
+    <div>📝 {paper.extractive_summary}</div>
+    <div>💡 {paper.abstractive_summary}</div>
+    <a href={paper.link}>Read Full Paper →</a>
+  </div>
+))
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+3️⃣ CONSENSUS CLAIMS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌─────────────────────────────────────────────────┐
+│ 🎯 Microgravity reduces bone density            │  ←─  .claim        →  Card Title
+│                                                  │
+│ [████████████████████░░] 93%                    │  ←─  .consensus    →  Progress Bar
+│ Strong Consensus                                 │      _score            + Badge
+│                                                  │
+│ ✅ 187 supporting  ❌ 8 contradicting           │  ←─  .supporting   →  Stat Pills
+│                                                  │      _papers
+│                                                  │      .contradicting
+│                                                  │      _papers
+│ 📄 Evidence:                                     │
+│ • Paper 15: "Bone mineral density..."           │  ←─  .supporting   →  List of
+│ • Paper 28: "Osteoclast activity..."            │      _snippets         Quotes
+│ • Paper 67: "Trabecular bone loss..."           │
+└─────────────────────────────────────────────────┘
+
+Each Claim Object:
+{
+  "claim": "Microgravity reduces bone density",
+  "consensus_score": 93,
+  "confidence_badge": "strong_consensus",
+  "supporting_papers": 187,
+  "contradicting_papers": 8,
+  "supporting_snippets": [
+    {
+      "paper_id": "15",
+      "section": "results",
+      "sentence": "Bone mineral density decreased..."
+    }
+  ]
+}
+
+Framer Code:
+```jsx
+<div className="claim-card">
+  <h3>{claim.claim}</h3>
+  
+  {/* Progress Bar */}
+  <div className="progress">
+    <div style={{width: `${claim.consensus_score}%`}} />
+  </div>
+  <span>{claim.consensus_score}% Consensus</span>
+  
+  {/* Evidence */}
+  <div>
+    ✅ {claim.supporting_papers} supporting
+    ❌ {claim.contradicting_papers} contradicting
+  </div>
+  
+  {/* Snippets */}
+  {claim.supporting_snippets.map(snippet => (
+    <p>Paper {snippet.paper_id}: "{snippet.sentence}"</p>
+  ))}
+</div>
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+4️⃣ TOPIC ANALYSIS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌─────────────────────────────────────────────┐
+│ Topic 1: Musculoskeletal Adaptation         │  ←─  .name         →  Card Header
+│ 100 papers                                   │  ←─  .paper_count  →  Count Badge
+│                                              │
+│ 🏷️ bone • muscle • atrophy • exercise •     │  ←─  .top_words    →  Tag Pills
+│    density • skeletal • mass • calcium       │      [0-14]
+│                                              │
+│ 📄 Representative Papers:                    │  ←─  .papers_with  →  Paper List
+│ • Paper 1: Title...                          │      _titles
+│ • Paper 2: Title...                          │
+└─────────────────────────────────────────────┘
+
+Each Topic Object:
+{
+  "topic_id": 1,
+  "name": "Musculoskeletal Adaptation & Countermeasures",
+  "top_words": ["bone", "muscle", "atrophy", ...],
+  "representative_docs": [1, 2, 3, ..., 100],
+  "paper_count": 100,
+  "papers_with_titles": [
+    {"id": 1, "title": "Paper title..."}
+  ]
+}
+
+Framer Code:
+```jsx
+<div className="topic-card">
+  <h3>Topic {topic.topic_id}: {topic.name}</h3>
+  <span>{topic.paper_count} papers</span>
+  
+  {/* Keywords */}
+  <div className="keywords">
+    {topic.top_words.slice(0, 10).map(word => (
+      <span className="tag">{word}</span>
+    ))}
+  </div>
+  
+  {/* Papers */}
+  {topic.papers_with_titles.map(paper => (
+    <div>Paper {paper.id}: {paper.title}</div>
+  ))}
+</div>
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+5️⃣ KNOWLEDGE GAPS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌─────────────────────────────────────────────┐
+│ 🔴 High Priority Gap                         │  ←─  .gap_score    →  Badge + %
+│ Gap Score: 89%                               │      (>0.85=High)
+│ Mission Relevance: 95%                       │  ←─  .mission_     →  Score Bar
+│                                              │      relevance
+│ 🏷️ long-term • mars • radiation •           │  ←─  .keywords     →  Tag Pills
+│    deep-space                                │
+│                                              │
+│ Only 23 papers cover this area              │  ←─  .paper_       →  Text Note
+│                                              │      density
+│ 🔬 Recommended Experiments:                  │  ←─  .recommended  →  Bullet List
+│ • Long-duration radiation studies            │      _experiments
+│ • Combined radiation + microgravity          │
+│ • Countermeasure efficacy tests              │
+└─────────────────────────────────────────────┘
+
+Each Gap Object:
+{
+  "gap_score": 0.89,
+  "keywords": ["long-term", "mars", "radiation"],
+  "mission_relevance": 0.95,
+  "paper_density": 23,
+  "recommended_experiments": [
+    "Long-duration radiation exposure studies...",
+    "Investigate combined effects...",
+    ...
+  ]
+}
+
+Framer Code:
+```jsx
+<div className="gap-card">
+  <div className="priority-badge">
+    {gap.gap_score > 0.85 ? '🔴 High' : 
+     gap.gap_score > 0.75 ? '🟡 Medium' : '🟢 Low'}
+  </div>
+  
+  <h3>Gap Score: {(gap.gap_score * 100).toFixed(0)}%</h3>
+  <div>Mission Relevance: {(gap.mission_relevance * 100).toFixed(0)}%</div>
+  
+  {/* Keywords */}
+  <div className="keywords">
+    {gap.keywords.map(kw => <span>{kw}</span>)}
+  </div>
+  
+  <p>Only {gap.paper_density} papers cover this area</p>
+  
+  {/* Experiments */}
+  <ul>
+    {gap.recommended_experiments.map(exp => <li>{exp}</li>)}
+  </ul>
+</div>
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6️⃣ MISSION INSIGHTS PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌─────────────────────────────────────────────┐
+│ 🔴 High Risk                                 │  ←─  .risk_level   →  Badge
+│ Bone Loss Requires Multi-Modal              │  ←─  .title        →  Card Header
+│ Countermeasures                              │
+│                                              │
+│ 93.5% Confidence                             │  ←─  .confidence   →  Progress Bar
+│ [██████████████████░]                        │
+│                                              │
+│ 🏷️ Musculoskeletal                          │  ←─  .category     →  Category Tag
+│                                              │
+│ 📊 Finding:                                  │  ←─  .finding      →  Text Block
+│ Despite exercise protocols, significant      │
+│ bone loss persists...                        │
+│                                              │
+│ 💡 Recommendation:                           │  ←─  .recommenda   →  Text Block
+│ Implement combined countermeasures...        │      tion
+│                                              │
+│ Based on 187 papers                          │  ←─  .supporting   →  Count Badge
+└─────────────────────────────────────────────┘      _papers
+
+Each Insight Object:
+{
+  "title": "Bone Loss Requires Multi-Modal Countermeasures",
+  "category": "Musculoskeletal",
+  "risk_level": "high",
+  "confidence": 93.5,
+  "finding": "Despite exercise protocols...",
+  "recommendation": "Implement combined countermeasures...",
+  "supporting_papers": 187
+}
+
+Framer Code:
+```jsx
+<div className="insight-card">
+  <div className={`risk-badge ${insight.risk_level}`}>
+    {insight.risk_level === 'high' ? '🔴' : 
+     insight.risk_level === 'medium' ? '🟡' : '🟢'} 
+    {insight.risk_level}
+  </div>
+  
+  <h3>{insight.title}</h3>
+  
+  {/* Confidence */}
+  <div className="confidence">
+    {insight.confidence}% Confidence
+    <div style={{width: `${insight.confidence}%`}} />
+  </div>
+  
+  <span className="category">{insight.category}</span>
+  
+  <div className="finding">
+    <strong>📊 Finding:</strong>
+    <p>{insight.finding}</p>
+  </div>
+  
+  <div className="recommendation">
+    <strong>💡 Recommendation:</strong>
+    <p>{insight.recommendation}</p>
+  </div>
+  
+  <span>Based on {insight.supporting_papers} papers</span>
+</div>
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+7️⃣ ADDITIONAL SOURCES PAGE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dashboard Shows:                JSON File:        Display As:
+┌─────────────────────────────────────────────┐
+│ 🔬 OSDR_001                                  │  ←─  .source_id    →  ID Badge
+│ Source Title                                 │  ←─  .title        →  Card Header
+│                                              │
+│ 🏷️ NASA OSDR                                │  ←─  .source       →  Source Badge
+│ Type: Space Biology Research                 │  ←─  .type         →  Type Label
+│ Category: Microgravity Studies               │  ←─  .category     →  Category Tag
+│                                              │
+│ Description of experiment...                 │  ←─  .description  →  Text Block
+│                                              │
+│ 🔗 View Source                               │  ←─  .url          →  Button/Link
+└─────────────────────────────────────────────┘
+
+Each Source Object:
+{
+  "source_id": "OSDR_001",
+  "title": "Source title...",
+  "source": "NASA OSDR",
+  "type": "Space Biology Research",
+  "category": "Microgravity Studies",
+  "url": "https://...",
+  "description": "Description..."
+}
+
+Framer Code:
+```jsx
+<div className="source-card">
+  <div className="id-badge">{source.source_id}</div>
+  <h3>{source.title}</h3>
+  
+  <span className="source-type">{source.source}</span>
+  <span className="type">{source.type}</span>
+  <span className="category">{source.category}</span>
+  
+  <p>{source.description}</p>
+  
+  <a href={source.url} target="_blank">
+    View Source →
+  </a>
+</div>
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 COLOR CODING REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Consensus Badges:
+strong_consensus (>85%): #10b981 (green) ✅
+moderate_consensus (<85%): #f59e0b (yellow) ⚠️
+
+Risk Levels:
+high: #ef4444 (red) 🔴
+medium: #f59e0b (orange) 🟡
+low: #10b981 (green) 🟢
+
+Gap Priority:
+High (>85%): #ef4444 (red) 🔴
+Medium (75-85%): #f59e0b (orange) 🟡
+Low (<75%): #3b82f6 (blue) 🔵
+
+Topic Colors (1-10):
+#3b82f6 #8b5cf6 #ec4899 #f59e0b #10b981
+#06b6d4 #6366f1 #f43f5e #84cc16 #a855f7
+
+Source Types:
+NASA OSDR: #3b82f6 (blue)
+Task Book: #10b981 (green)
+NASA Missions: #f59e0b (orange)
+PSI Experiments: #8b5cf6 (purple)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ EVERYTHING IS MAPPED!
+Just fetch → map → style!
