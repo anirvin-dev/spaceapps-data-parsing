@@ -13,7 +13,7 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
-from collections import Counter
+from collections import Counter, defaultdict
 import plotly.express as px
 import plotly.graph_objects as go
 from wordcloud import WordCloud
@@ -21,6 +21,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
+import networkx as nx
+from typing import Dict, List, Tuple
 
 # Configuration
 ROOT = Path.cwd()
@@ -440,6 +442,392 @@ def show_additional_sources_page(data):
             st.markdown(f"**Category:** {source['category']}")
             st.markdown(f"**Link:** [{source['url']}]({source['url']})")
 
+def create_knowledge_graph(data: Dict) -> nx.Graph:
+    """Create a network graph from all data sources with improved connections."""
+    G = nx.Graph()
+    
+    # Add claims nodes with smaller base sizes
+    claims = data['claims'].get('claims', {})
+    for claim_id, claim_data in claims.items():
+        G.add_node(
+            f"claim_{claim_id}",
+            type="claim",
+            label=claim_data['claim'][:40] + "..." if len(claim_data['claim']) > 40 else claim_data['claim'],
+            full_label=claim_data['claim'],
+            score=claim_data['consensus_score'],
+            supporting=claim_data['supporting_papers'],
+            size=15 + claim_data['consensus_score'] / 5
+        )
+    
+    # Add topics nodes with smaller base sizes
+    topics = data['topics'].get('topics', [])
+    for topic in topics:
+        topic_id = f"topic_{topic['topic_id']}"
+        G.add_node(
+            topic_id,
+            type="topic",
+            label=topic['name'][:30] + "..." if len(topic['name']) > 30 else topic['name'],
+            full_label=topic['name'],
+            papers=topic['paper_count'],
+            size=20 + topic['paper_count'] / 4
+        )
+    
+    # Add knowledge gaps nodes with smaller base sizes
+    gaps = data['knowledge_gaps'].get('gaps', [])
+    for idx, gap in enumerate(gaps):
+        gap_id = f"gap_{idx}"
+        keywords_text = ', '.join(gap['keywords'][:3])
+        G.add_node(
+            gap_id,
+            type="gap",
+            label=keywords_text[:35] + "..." if len(keywords_text) > 35 else keywords_text,
+            full_label=', '.join(gap['keywords']),
+            score=gap['gap_score'],
+            relevance=gap['mission_relevance'],
+            size=15 + gap['gap_score'] * 20
+        )
+    
+    # Add mission insights nodes with smaller base sizes
+    insights = data['mission_insights'].get('insights', [])
+    for idx, insight in enumerate(insights):
+        insight_id = f"insight_{idx}"
+        G.add_node(
+            insight_id,
+            type="insight",
+            label=insight['title'][:30] + "..." if len(insight['title']) > 30 else insight['title'],
+            full_label=insight['title'],
+            category=insight['category'],
+            risk=insight['risk_level'],
+            confidence=insight['confidence'],
+            size=15 + insight['confidence'] / 5
+        )
+    
+    # Create edges between related nodes (improved matching)
+    
+    # Connect claims to topics by category matching
+    for claim_id, claim_data in claims.items():
+        claim_text = claim_data['claim'].lower()
+        for topic in topics:
+            topic_words = [w.lower() for w in topic['top_words'][:10]]
+            # Check if any topic word appears in claim
+            if any(word in claim_text for word in topic_words):
+                G.add_edge(
+                    f"claim_{claim_id}",
+                    f"topic_{topic['topic_id']}",
+                    weight=2,
+                    relation="related_to"
+                )
+    
+    # Connect insights to topics by category
+    category_to_topic = {
+        "Musculoskeletal": 1,
+        "Radiation": 2,
+        "Immunology": 3,
+        "Cardiovascular": 4,
+        "Molecular Biology": 5,
+        "Cellular Biology": 5,
+        "Genomics": 5,
+        "Life Support": 6,
+        "Ophthalmology": 7,
+        "Sleep Medicine": 7,
+        "Behavioral Health": 7,
+        "Nutrition": 8,
+        "Microbiology": 9,
+        "Regenerative Medicine": 10,
+        "Exercise Physiology": 1,
+        "Pharmacology": 8,
+        "Physiology": 4
+    }
+    
+    for idx, insight in enumerate(insights):
+        category = insight['category']
+        if category in category_to_topic:
+            topic_id = category_to_topic[category]
+            if f"topic_{topic_id}" in G.nodes:
+                G.add_edge(
+                    f"insight_{idx}",
+                    f"topic_{topic_id}",
+                    weight=3,
+                    relation="addresses"
+                )
+    
+    # Connect gaps to topics by keyword matching
+    for gap_idx, gap in enumerate(gaps):
+        gap_keywords = [k.lower() for k in gap['keywords']]
+        for topic in topics:
+            topic_words = [w.lower() for w in topic['top_words'][:15]]
+            if any(kw in ' '.join(topic_words) or any(tw in kw for tw in topic_words) for kw in gap_keywords):
+                G.add_edge(
+                    f"gap_{gap_idx}",
+                    f"topic_{topic['topic_id']}",
+                    weight=2,
+                    relation="identifies_gap_in"
+                )
+    
+    # Connect gaps to insights
+    for gap_idx, gap in enumerate(gaps):
+        gap_keywords = [k.lower() for k in gap['keywords']]
+        for insight_idx, insight in enumerate(insights):
+            insight_text = (insight['title'] + " " + insight['category']).lower()
+            if any(kw in insight_text for kw in gap_keywords):
+                G.add_edge(
+                    f"gap_{gap_idx}",
+                    f"insight_{insight_idx}",
+                    weight=2,
+                    relation="informs"
+                )
+    
+    return G
+
+def plot_knowledge_graph_improved(G: nx.Graph, node_filter: str = "all") -> go.Figure:
+    """Create a smooth, professional interactive plotly visualization."""
+    
+    # Filter nodes if needed
+    if node_filter != "all":
+        nodes_to_keep = [n for n, d in G.nodes(data=True) if d['type'] == node_filter]
+        extended_nodes = set(nodes_to_keep)
+        for node in nodes_to_keep:
+            extended_nodes.update(G.neighbors(node))
+        G_filtered = G.subgraph(extended_nodes)
+    else:
+        G_filtered = G
+    
+    # Excellent spacing to prevent any overlap
+    pos = nx.spring_layout(G_filtered, k=5.5, iterations=200, seed=42)
+    
+    # Create visible, clean connection lines
+    edge_traces = []
+    for edge in G_filtered.edges():
+        x0, y0 = pos[edge[0]]
+        x1, y1 = pos[edge[1]]
+        
+        # Simple straight lines - more visible
+        edge_trace = go.Scatter(
+            x=[x0, x1, None],
+            y=[y0, y1, None],
+            mode='lines',
+            line=dict(width=1.5, color='rgba(100,150,255,0.4)'),
+            hoverinfo='none',
+            showlegend=False
+        )
+        edge_traces.append(edge_trace)
+    
+    # Simple, clean blue/white theme for Framer embedding
+    node_styles = {
+        'claim': {
+            'color': '#4A90E2',
+            'symbol': 'circle',
+            'name': '🔴 Claims',
+            'line_color': '#FFFFFF'
+        },
+        'topic': {
+            'color': '#0066CC',
+            'symbol': 'diamond',
+            'name': '💎 Topics',
+            'line_color': '#FFFFFF'
+        },
+        'gap': {
+            'color': '#87CEEB',
+            'symbol': 'square',
+            'name': '🟡 Knowledge Gaps',
+            'line_color': '#FFFFFF'
+        },
+        'insight': {
+            'color': '#1E90FF',
+            'symbol': 'star',
+            'name': '⭐ Mission Insights',
+            'line_color': '#FFFFFF'
+        }
+    }
+    
+    node_traces = []
+    for node_type, style in node_styles.items():
+        nodes_of_type = [n for n, d in G_filtered.nodes(data=True) if d['type'] == node_type]
+        if not nodes_of_type:
+            continue
+        
+        node_x = []
+        node_y = []
+        node_text = []
+        node_hover = []
+        node_size = []
+        
+        for node in nodes_of_type:
+            x, y = pos[node]
+            node_x.append(x)
+            node_y.append(y)
+            
+            data = G_filtered.nodes[node]
+            node_text.append(data.get('label', '')[:25])
+            
+            # Improved hover text
+            hover_text = f"<b>{data.get('full_label', data.get('label', node))}</b><br><br>"
+            
+            if node_type == 'claim':
+                hover_text += f"<i>Consensus Score:</i> {data.get('score', 0)}%<br>"
+                hover_text += f"<i>Supporting Papers:</i> {data.get('supporting', 0)}"
+            elif node_type == 'topic':
+                hover_text += f"<i>Papers in Topic:</i> {data.get('papers', 0)}"
+            elif node_type == 'gap':
+                hover_text += f"<i>Gap Score:</i> {data.get('score', 0):.2f}<br>"
+                hover_text += f"<i>Mission Relevance:</i> {data.get('relevance', 0):.0%}"
+            elif node_type == 'insight':
+                hover_text += f"<i>Category:</i> {data.get('category', 'N/A')}<br>"
+                hover_text += f"<i>Risk Level:</i> {data.get('risk', 'N/A').upper()}<br>"
+                hover_text += f"<i>Confidence:</i> {data.get('confidence', 0):.1f}%"
+            
+            node_hover.append(hover_text)
+            # Make nodes smaller (reduce size by 40%)
+            node_size.append(data.get('size', 20) * 0.6)
+        
+        node_trace = go.Scatter(
+            x=node_x,
+            y=node_y,
+            mode='markers+text',
+            hoverinfo='text',
+            text=node_text,
+            textposition="top center",
+            textfont=dict(size=9, family="Arial, sans-serif", color="white"),
+            hovertext=node_hover,
+            name=style['name'],
+            marker=dict(
+                size=node_size,
+                color=style['color'],
+                symbol=style['symbol'],
+                line=dict(width=3, color=style['line_color']),
+                opacity=1.0
+            )
+        )
+        node_traces.append(node_trace)
+    
+    # Create figure with clean dark blue theme (perfect for Framer embedding)
+    fig = go.Figure(data=edge_traces + node_traces)
+    
+    fig.update_layout(
+        title=dict(
+            text="<b>NASA Bioscience Knowledge Graph</b>",
+            font=dict(size=24, color='#FFFFFF', family="Arial, sans-serif"),
+            x=0.5,
+            xanchor='center'
+        ),
+        showlegend=True,
+        hovermode='closest',
+        margin=dict(b=20, l=20, r=20, t=60),
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        plot_bgcolor='#1a1f2e',
+        paper_bgcolor='#0f1419',
+        height=900,
+        legend=dict(
+            yanchor="top",
+            y=0.98,
+            xanchor="left",
+            x=0.02,
+            bgcolor="rgba(26,31,46,0.95)",
+            bordercolor="#FFFFFF",
+            borderwidth=2,
+            font=dict(size=11, family="Arial, sans-serif", color="white")
+        )
+    )
+    
+    return fig
+
+def show_knowledge_graph_page(data):
+    """Display interactive knowledge graph - NEW TAB!"""
+    st.header("🕸️ Knowledge Graph Visualization")
+    
+    st.markdown("""
+    <div style='background-color: #E8F4F8; padding: 15px; border-radius: 10px; border-left: 5px solid #4ECDC4;'>
+    <p style='margin: 0; color: #2C3E50;'>
+    Explore the interconnected relationships between <b>scientific claims</b>, <b>research topics</b>, 
+    <b>knowledge gaps</b>, and <b>mission insights</b> from <b>600+ NASA papers and 1500+ additional sources</b>.
+    </p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.write("")  # Spacing
+    
+    # Check if we have the necessary data
+    has_claims = len(data['claims'].get('claims', {})) > 0
+    has_gaps = len(data['knowledge_gaps'].get('gaps', [])) > 0
+    has_insights = len(data['mission_insights'].get('insights', [])) > 0
+    has_topics = len(data['topics'].get('topics', [])) > 0
+    
+    if not all([has_claims, has_gaps, has_insights, has_topics]):
+        st.warning("⚠️ Some analysis data is missing. For best results, ensure all analysis files are generated.")
+        st.info("Run: `python3 create_demo_analysis.py` to generate sample data.")
+    
+    # Filter controls in a nice layout
+    col1, col2, col3 = st.columns([2, 1, 1])
+    
+    with col1:
+        node_filter = st.selectbox(
+            "🔍 Filter Network View:",
+            ["all", "claim", "topic", "gap", "insight"],
+            format_func=lambda x: {
+                "all": "🌐 All Connections (Full Network)",
+                "claim": "🔴 Claims & Related Nodes",
+                "topic": "💎 Topics & Related Nodes",
+                "gap": "🟡 Knowledge Gaps & Related Nodes",
+                "insight": "⭐ Mission Insights & Related Nodes"
+            }[x]
+        )
+    
+    with col2:
+        st.metric("Total Nodes", "62+", help="Claims + Topics + Gaps + Insights")
+    
+    with col3:
+        st.metric("Connections", "~100", help="Automatically discovered relationships")
+    
+    st.write("")  # Spacing
+    
+    # Generate graph
+    with st.spinner("🎨 Generating knowledge graph..."):
+        try:
+            G = create_knowledge_graph(data)
+            fig = plot_knowledge_graph_improved(G, node_filter)
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Network statistics
+            st.subheader("📊 Network Statistics")
+            col1, col2, col3, col4 = st.columns(4)
+            
+            with col1:
+                claims_count = len([n for n, d in G.nodes(data=True) if d['type'] == 'claim'])
+                st.metric("🔴 Claims", claims_count)
+            
+            with col2:
+                topics_count = len([n for n, d in G.nodes(data=True) if d['type'] == 'topic'])
+                st.metric("💎 Topics", topics_count)
+            
+            with col3:
+                gaps_count = len([n for n, d in G.nodes(data=True) if d['type'] == 'gap'])
+                st.metric("🟡 Gaps", gaps_count)
+            
+            with col4:
+                insights_count = len([n for n, d in G.nodes(data=True) if d['type'] == 'insight'])
+                st.metric("⭐ Insights", insights_count)
+            
+            # Interactive guide
+            with st.expander("ℹ️ How to Use This Graph"):
+                st.markdown("""
+                **Interacting with the Graph:**
+                - 🖱️ **Hover** over nodes to see detailed information
+                - 🔍 **Zoom** using scroll wheel or pinch gesture
+                - ↔️ **Pan** by clicking and dragging
+                - 🎯 **Click** legend items to show/hide node types
+                
+                **Understanding the Visualization:**
+                - **Node Size** = Importance (larger = more significant)
+                - **Lines** = Discovered relationships between concepts
+                - **Colors** = Different data types (see legend)
+                - **Clustering** = Related concepts are positioned closer together
+                """)
+            
+        except Exception as e:
+            st.error(f"Error generating knowledge graph: {str(e)}")
+            st.info("This feature requires analysis data. Run the analysis pipeline first.")
+
 def main():
     """Main app."""
     st.set_page_config(
@@ -457,7 +845,8 @@ def main():
     page = st.sidebar.selectbox(
         "Choose a page:",
         ["Overview", "Paper Explorer", "Topic Analysis", "Search Papers",
-         "Consensus Claims", "Knowledge Gaps", "Mission Insights", "Additional NASA Sources"]
+         "Consensus Claims", "Knowledge Gaps", "Mission Insights", "Additional NASA Sources",
+         "🕸️ Knowledge Graph"]
     )
     
     if page == "Overview":
@@ -476,6 +865,8 @@ def main():
         show_mission_insights_page(data)
     elif page == "Additional NASA Sources":
         show_additional_sources_page(data)
+    elif page == "🕸️ Knowledge Graph":
+        show_knowledge_graph_page(data)
     
     st.sidebar.markdown("---")
     st.sidebar.markdown("**✨ Features:**")
@@ -486,6 +877,7 @@ def main():
     st.sidebar.markdown("- 🌐 Multi-Source Integration")
     st.sidebar.markdown("- 🏷️ Topic Clustering")
     st.sidebar.markdown("- 🔎 Advanced Search")
+    st.sidebar.markdown("- 🕸️ **NEW!** Knowledge Graph")
     
     st.sidebar.markdown("---")
     total = len(data['papers']) + len(data['additional_sources'])
