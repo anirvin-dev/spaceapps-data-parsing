@@ -1,0 +1,6 @@
+run = "streamlit run dashboard_complete.py --server.port=8501 --server.address=0.0.0.0"
+language = "python3"
+
+[nix]
+channel = "stable-22_11"
+
