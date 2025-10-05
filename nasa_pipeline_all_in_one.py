@@ -74,9 +74,9 @@ import umap
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import seaborn as sns
-import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+import seaborn as sns  # pyright: ignore[reportMissingModuleSource, reportUnusedImport, reportUnusedImport]
+import matplotlib.pyplot as plt  # pyright: ignore[reportMissingImports, reportUnusedImport]
+from wordcloud import WordCloud  # pyright: ignore[reportMissingImports]
 
 # Web framework
 import streamlit as st

@@ -25,7 +25,7 @@ import numpy as np
 from pathlib import Path
 from sentence_transformers import SentenceTransformer
 import faiss
-from wordcloud import WordCloud
+from wordcloud import WordCloud  # pyright: ignore[reportMissingImports]
 import io
 import base64
 from collections import Counter, defaultdict
